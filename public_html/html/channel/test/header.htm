@@ -1,0 +1,263 @@
+<!--<?php print <<<EOT
+--><!doctype html>
+<html>
+<head>
+<meta charset="$db_charset" />
+<title>$webPageTitle - Powered by phpwind</title>
+<meta name="generator" content="phpwind $wind_version" />
+<meta name="description" content="$metaDescription" />
+<meta name="keywords" content="$metaKeywords" />
+<base id="headbase" href="$db_bbsurl/" />
+<link rel="stylesheet" href="$imgpath/pw_core.css?{$GLOBALS['wind_repair']}" />
+<link rel="stylesheet" href="$channelImagePath/head.css?{$GLOBALS['wind_repair']}" />
+<link rel="stylesheet" href="$channelImagePath/style.css?{$GLOBALS['wind_repair']}" />
+<!--#if($pwModeCss){#--><link rel="stylesheet" href="$pwModeCss" />
+<!--#}#-->
+<script type="text/javascript" src="$channelImagePath/MSClass.js"></script>
+<script type="text/javascript" src="js/core/core.js"></script>
+<script type="text/javascript" src="js/pw_ajax.js"></script>
+<script>
+var pw_baseurl = "$db_bbsurl";
+var imgpath = '$imgpath';
+//var verifyhash = '$verifyhash';
+var modeimg = '$pwModeImg';
+var modeBase = '$baseUrl';
+var winduid = '$winduid';
+var windid	= '$windid';
+var groupid	= '$groupid';
+var channelid	= '$channelid';
+</script>
+<!--[if IE 9 ]>
+<meta name="msapplication-task" content="name=网站首页; action-uri=$db_bbsurl; icon-uri=favicon.ico" />
+<meta name="msapplication-task" content="name=个人中心; action-uri=u.php; icon-uri=images/ico/home.ico" />
+<meta name="msapplication-task" content="name=我的帖子; action-uri=apps.php?q=article; icon-uri=images/ico/post.ico" />
+<meta name="msapplication-task" content="name=消息中心; action-uri=message.php; icon-uri=images/ico/mail.ico" />
+<meta name="msapplication-task" content="name=我的设置; action-uri=profile.php; icon-uri=images/ico/edit.ico" />
+<![endif]-->
+</head>
+<body id="body">
+<script type="text/javascript">
+function $(id){return document.getElementById(id)};
+</script>
+
+<div id="top">
+	<div class="top cc">
+		<script type="text/javascript" src="mode.php?m=area&q=header&ifactive=$ifactive&alias=$alias&t=$timestamp"></script>
+		<a href="$db_bbsurl/" title="$area_sitename" id="logo">$area_sitename</a>
+    	<ul>
+<!--
+EOT;
+foreach ($_Navbar['main'] as $key => $value) {
+	if ($key == 'html') continue;
+	$currentClass = '';
+	if ($value['data']['iscurrent']) {
+		$currentClass = ' class="current"';
+		$currentMainNavKey = $key;
+	}
+	$html = buildNavLinkHtml($value['data']);
+	$crossEvent = $verticalEvent = $currentEvent = '';
+
+	if (!$value['data']['iscurrent'] && 'cross' == $value['data']['floattype'] && $value['subs']) {
+		$crossEvent = " onmouseover=\"ctrlSubMenu('nav_key_up_$key', 'nav_key_sub_$key');\"";
+	}
+	if (!$value['data']['iscurrent'] && 'vertical' == $value['data']['floattype'] && $value['subs']) {
+		$verticalEvent = " onmouseover=\"ctrlSubMenu('nav_key_sub_$key','nav_key_sub_$key');\"";
+	}
+	if ($value['data']['iscurrent']) {
+		$currentEvent = " onmouseover=\"ctrlSubMenu('nav_key_sub_$key','nav_key_sub_$key');\"";
+	}
+print <<<EOT
+-->
+					<li{$currentClass}{$crossEvent}{$verticalEvent}{$currentEvent}>$html</li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+        </ul>
+        <div class="searchA fl cc">
+        	<form action="searcher.php" method="post" onSubmit="return searchCheck(this);">
+	        	<input type="hidden" value="$verifyhash" name="verify">
+	            <input value="2" type="hidden" name="step">
+	            <input value="thread" type="hidden" id="search_type" name="type">
+	            <div class="ip"><input id="search_input" type="text" value="搜索其实很简单！" class="gray" name="keyword" onFocus="searchFocus(this)" onBlur="searchBlur(this)" /></div>
+	            <div class="s_select" onMouseOut="this.firstChild.style.display='none';" onMouseOver="this.firstChild.style.display='block';"><ul onClick="getSearchType(event)"><!--
+EOT;
+if ($db_search_type) {
+	foreach ($db_search_type as $key=>$value) {
+		$currentType = $key == 'thread' ? 'style="display:none"' : '';
+print <<<EOT
+--><li type="$key" $currentType>{$value}</li><!--
+EOT;
+	}
+} else {
+print <<<EOT
+--><li type="thread" style="display:none">帖子</li><li type="diary">日志</li><li type="user">用户</li><li type="forum">版块</li><li type="group">群组</li><!--
+EOT;
+}print <<<EOT
+--></ul><h6>帖子</h6></div>
+	            <button type="submit" class="cp fl"> </button>
+            </form>
+            
+        </div>
+
+
+    </div>
+
+<div id="navB" class="pr">
+<!--
+EOT;
+$showEmptyNav = true;
+foreach ($_Navbar['main'] as $key => $value) {
+	if ($key == 'html') continue;
+	$subs = $value['subs'];
+	$nav = $value['data'];
+	if ($subs) {
+
+		if ($nav['iscurrent']) {
+			$showEmptyNav = false;
+            //$db_menuinit .= ",'nav_key_up_$key' : 'nav_key_sub_$key'";
+			$menuListClass = 'align' == $nav['selflisttype'] ? 'menuListB' : 'menuListC';
+print <<<EOT
+-->
+        	<div id="nav_key_sub_$key" class="navB" style="position:absolute; width:100%; top:0px; z-index:11; display:none;">
+				<div class="navBbg">
+                <ul class="$menuListClass cc"><!--
+EOT;
+			foreach ($subs as $value) {
+				$html = buildNavLinkHtml($value);
+print <<<EOT
+--><li>$html</li><!--
+EOT;
+			}
+print <<<EOT
+--></ul>
+				</div>
+            </div>
+<!--
+EOT;
+		} elseif ('cross' == $nav['floattype']) {
+			//$db_menuinit .= ",'nav_key_up_$key' : 'nav_key_sub_$key'"; //register
+			$menuListClass = 'space' == $nav['listtype'] ? 'menuListC' : 'menuListB';
+print <<<EOT
+-->
+        	<div id="nav_key_sub_$key" class="navB" style="position:absolute; width:100%; top:0px; z-index:11; display:none;" >
+				<div class="navBbg">
+                <ul class="$menuListClass cc"><!--
+EOT;
+			foreach ($subs as $value) {
+				$html = buildNavLinkHtml($value);
+print <<<EOT
+--><li>$html</li><!--
+EOT;
+			}
+print <<<EOT
+--></ul>
+				</div>
+            </div>
+<!--
+EOT;
+		} elseif ('vertical' == $nav['floattype']) {
+			//$db_menuinit .= ",'nav_key_up_$key' : 'nav_key_sub_$key'"; //register
+			$appendClass = 'twocol' == $nav['listtype'] ? 'menuHalf cc' : '';
+			$width = 'twocol' == $nav['listtype'] ? '18' : '9';
+print <<<EOT
+-->
+        	<div id="nav_key_sub_$key" class="navB" style="position:absolute; width:100%; top:0px; z-index:11; display:none;" >
+				<div class="navBbg">
+                <ul class="$menuListClass cc"><!--
+EOT;
+			foreach ($subs as $value) {
+				$html = buildNavLinkHtml($value);
+print <<<EOT
+--><li>$html</li><!--
+EOT;
+			}
+print <<<EOT
+--></ul>
+				</div>
+            </div>
+<!--
+EOT;
+		}
+
+	}
+}
+if ($showEmptyNav) {
+print <<<EOT
+-->
+<!--
+EOT;
+}
+print <<<EOT
+-->
+		</div>
+</div>
+
+<!--
+EOT;
+list($htmlAdvert,$arrayAdvert) = pwAdvert('Site.Header',$fid);
+if($htmlAdvert){print <<<EOT
+-->
+<div class="tac" style="line-height:1;">$htmlAdvert</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+<script>
+function updateCache(alias){
+	var url = 'mode.php?m=area&q=static&alias='+alias;
+	ajax.send(url,'',ajax.get);
+}
+</script>
+<script>
+var timeoutSpecifyId = {};
+
+function tmpClose(elementId) {
+	timeoutSpecifyId[elementId] = setTimeout(function() {
+		getObj(elementId).style.display = 'none';
+	}, 100);
+}
+function tmpHideAllCross(currentSubMenuId) {
+	var elements = getElementsByClassName('navB', getObj('navB'));
+	for (i=0; i<elements.length; i++) {
+		if (elements[i].id != '' && elements[i].id != currentSubMenuId) elements[i].style.display = 'none';
+	}
+}
+
+function ctrlSubMenu(parentId, subMenuId) {
+	clearTimeout(timeoutSpecifyId[subMenuId]);
+
+	tmpHideAllCross(subMenuId);
+	getObj(subMenuId).style.display = '';
+
+	getObj(parentId).onmouseout = function() {
+		tmpClose(subMenuId);
+		getObj(parentId).onmouseout = '';
+	};
+	getObj(subMenuId).onmouseout = function() {
+		tmpClose(subMenuId);
+	};
+	getObj(subMenuId).onmouseover = function() {
+		clearTimeout(timeoutSpecifyId[subMenuId]);
+		getObj(subMenuId).style.display = '';
+	};
+}
+</script>
+	
+<script>
+function searchCheck(o) {
+	getVerify(o);
+	return searchInput();
+}
+
+function getVerify(o) {
+	o.verify.value = verifyhash;
+	return true;
+}
+</script>
+<div class="c"></div>
+<div id="main">
+<!--
+EOT;
+?>-->

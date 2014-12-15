@@ -1,0 +1,361 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>图酷 - 桃乡人网 - Powered by phpwind</title>
+<meta name="generator" content="phpwind 8.7" />
+<meta name="description" content="桃乡人网" />
+<meta name="keywords" content="图酷 - 桃乡人网" />
+<base id="headbase" href="http://taoxiangren.com/" />
+<link rel="stylesheet" href="images/pw_core.css?20111111" />
+<link rel="stylesheet" href="mode/area/images/head.css?20111111" />
+<link rel="stylesheet" href="html/channel/tucool/images/style.css?20111111" /><script type="text/javascript" src="js/core/core.js"></script>
+<script type="text/javascript" src="js/pw_ajax.js"></script>
+<script>
+var pw_baseurl = "http://taoxiangren.com";
+var imgpath = 'images';
+//var verifyhash = 'db32884d';
+var modeimg = 'mode/area/images';
+var modeBase = 'mode.php?m=area';
+var winduid = '964';
+var windid	= '烟神';
+var groupid	= '7';
+var channelid	= '7';
+</script>
+<!--[if IE 9 ]>
+<meta name="msapplication-task" content="name=网站首页; action-uri=http://taoxiangren.com; icon-uri=favicon.ico" />
+<meta name="msapplication-task" content="name=个人中心; action-uri=u.php; icon-uri=images/ico/home.ico" />
+<meta name="msapplication-task" content="name=我的帖子; action-uri=apps.php?q=article; icon-uri=images/ico/post.ico" />
+<meta name="msapplication-task" content="name=消息中心; action-uri=message.php; icon-uri=images/ico/mail.ico" />
+<meta name="msapplication-task" content="name=我的设置; action-uri=profile.php; icon-uri=images/ico/edit.ico" />
+<![endif]-->
+</head>
+<body id="body">
+
+<div id="top">
+	<div class="top">
+    	<ul>
+
+            <li><a id="nav_key_up_16" href="http://www.phpwind.net/convert.php" title="" target="_blank">轻松转换</a></li>
+
+            <li><a id="nav_key_up_25" href="sort.php" title="" >统计排行</a></li>
+
+<div style="display: none;" class="pw_menu" id="nav_key_sub_25">
+<ul class="menuList">
+
+	<li><a id="nav_key_up_26" href="sort.php" title="" >基本信息</a></li>
+
+	<li><a id="nav_key_up_27" href="sort.php?action=ipstate" title="" >到访IP统计</a></li>
+
+	<li><a id="nav_key_up_29" href="sort.php?action=admin" title="" >管理统计</a></li>
+
+	<li><a id="nav_key_up_30" href="sort.php?action=online" title="" >在线会员</a></li>
+
+	<li><a id="nav_key_up_31" href="sort.php?action=member" title="" >会员排行</a></li>
+
+	<li><a id="nav_key_up_32" href="sort.php?action=forum" title="" >版块排行</a></li>
+
+	<li><a id="nav_key_up_33" href="sort.php?action=article" title="" >帖子排行</a></li>
+
+</ul>
+</div>
+
+            <li><a id="nav_key_up_" href="" title="" ></a></li>
+
+<div style="display: none;" class="pw_menu" id="nav_key_sub_18">
+<ul class="menuList">
+
+	<li><a id="nav_key_up_24" href="hack.php?H_name=bank" title="" >银行</a></li>
+
+</ul>
+</div>
+
+        </ul>
+    </div>
+</div>
+
+
+<script>
+function updateCache(alias){
+	var url = 'mode.php?m=area&q=static&alias='+alias;
+	ajax.send(url,'',ajax.get);
+}
+</script>
+<div id="header">
+	<div id="head" class="cc">
+		<a href="http://taoxiangren.com" class="fl"><img src="images/wind/logo.png" class="fl" title="" /></a>
+		<script type="text/javascript" src="mode.php?m=area&q=header&ifactive=&alias=tucool&t=1357389817"></script>
+ </div>
+	<div class="nav_wrap">
+		<div id="navA">
+<div class="navAL fl">&nbsp;</div>
+        	<div class="navAR fr">&nbsp;</div>
+<div class="navA">
+
+	<div id="td_mymenu">快捷通道</div>
+	<div id="menu_mymenu" style="display:none;">
+	<div id="fast_menu" class="pw_menu">
+		<ul class="menuList cc">
+<li><a href="apps.php?q=article"><img src="u/images/icon/posts.png" alt="帖子" />帖子</a></li>
+<li><a href="apps.php?q=medal"><img src="u/images/icon/medal.png" alt="勋章" />勋章</a></li>
+<li><a href="u.php?a=friend"><img src="u/images/icon/friend.png" alt="关注" />关注</a></li>
+<li><a href="jobcenter.php"><img src="u/images/icon/jobcenter.png" alt="任务" />任务</a></li>
+
+		</ul>
+	</div>
+	</div>
+	<ul class="cc">
+
+		<li class="current"  onmouseover="tmpHideAllCross('nav_key_sub_2');"><a id="nav_key_up_2" href="index.php?m=area" title="" >首页</a></li>
+
+		<li><a id="nav_key_up_6" href="html/channel/delicious" title="" target="_blank">美食</a></li>
+
+	</ul>
+</div>
+        </div>
+        <div id="navB" class="pr">
+
+
+		</div>
+<script>
+var timeoutSpecifyId = {};
+
+function tmpClose(elementId) {
+	timeoutSpecifyId[elementId] = setTimeout(function() {
+		getObj(elementId).style.display = 'none';
+	}, 100);
+}
+function tmpHideAllCross(currentSubMenuId) {
+	var elements = getElementsByClassName('navB', getObj('navB'));
+	for (i=0; i<elements.length; i++) {
+		if (elements[i].id != '' && elements[i].id != currentSubMenuId) elements[i].style.display = 'none';
+	}
+}
+
+function ctrlSubMenu(parentId, subMenuId) {
+	clearTimeout(timeoutSpecifyId[subMenuId]);
+
+	tmpHideAllCross(subMenuId);
+	getObj(subMenuId).style.display = '';
+
+	getObj(parentId).onmouseout = function() {
+		tmpClose(subMenuId);
+		getObj(parentId).onmouseout = '';
+	};
+	getObj(subMenuId).onmouseout = function() {
+		tmpClose(subMenuId);
+	};
+	getObj(subMenuId).onmouseover = function() {
+		clearTimeout(timeoutSpecifyId[subMenuId]);
+		getObj(subMenuId).style.display = '';
+	};
+}
+</script>
+     </div>
+	<div id="searchA">
+    	<div class="searchA_right fr">&nbsp;</div>
+        <div class="searchA cc">
+        	<form action="searcher.php" method="post" onSubmit="return searchCheck(this);">
+	        	<input type="hidden" value="db32884d" name="verify">
+	            <input value="2" type="hidden" name="step">
+	            <input value="thread" type="hidden" id="search_type" name="type">
+	            <div class="ip"><input id="search_input" type="text" value="搜索其实很简单！" class="gray" name="keyword" onFocus="searchFocus(this)" onBlur="searchBlur(this)" /></div>
+	            <div class="s_select" onMouseOut="this.firstChild.style.display='none';" onMouseOver="this.firstChild.style.display='block';"><ul onClick="getSearchType(event)"><li type="thread" style="display:none">帖子</li><li type="user" >用户</li><li type="forum" >版块</li></ul><h6>帖子</h6></div>
+	            <button type="submit" class="cp fl">搜索</button>
+            </form>
+            <div class="s_tags">
+
+            <span>热搜：</span>
+
+                	<a href="searcher.php?keyword=结婚&type=thread">结婚</a>
+
+                	<a href="searcher.php?keyword=母婴&type=thread">母婴</a>
+
+                	<a href="searcher.php?keyword=phpwind&type=thread">phpwind</a>
+
+            </div>
+        </div>
+    </div>
+<script>
+function searchCheck(o) {
+	getVerify(o);
+	return searchInput();
+}
+
+function getVerify(o) {
+	o.verify.value = verifyhash;
+	return true;
+}
+</script>
+</div><div id="main">
+<script type="text/javascript" src="mode/area/js/ddsliderplayer.js"></script>
+<div id="main">
+	<div class="tu_article">
+		<div class="tu_boxA mb10">
+<div class="tu_flash pr cc" id="pwSlidePlayer">
+	<div class="view-hover" invokename="A1_头部图片轮播@图酷" altname="A1_头部图片轮播@图酷" channelid="tucool"><ul class="tu_flash_switch" id="SlayerA_1"><li class="switchItem" style="display:none"><a href="read.php?tid=575"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/36e00348bc.jpg" width="520" height="300" /><h3>深州农民喜收罕见大冬瓜</h3></a></li><li class="switchItem" style="display:none"><a href="read.php?tid=570"  target="_blank"><img src="attachment/Mon_1212/12_1_85b10175e91be1f.jpg" width="520" height="300" /><h3>大学生创作视频《舌尖上的衡水》</h3></a></li><li class="switchItem" style="display:none"><a href="read.php?tid=568"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/fbf884a1be.jpg" width="520" height="300" /><h3>回迁户漂泊5年难回迁,迁怒邻居打</h3></a></li><li class="switchItem" style="display:none"><a href="read.php?tid=566"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/3c5d945739.jpg" width="520" height="300" /><h3>夜半三更盼天明,深州的苹果盼救</h3></a></li></ul>
+<div class="tu_flash_bg"></div>
+	<ol class="tu_flash_nav" id="SlayerA_2"><li class="switchNavItem"><a href="read.php?tid=575"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/36e00348bc.jpg" width="47" height="47" /></a></li><li class="switchNavItem"><a href="read.php?tid=570"  target="_blank"><img src="attachment/Mon_1212/12_1_85b10175e91be1f.jpg" width="47" height="47" /></a></li><li class="switchNavItem"><a href="read.php?tid=568"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/fbf884a1be.jpg" width="47" height="47" /></a></li><li class="switchNavItem"><a href="read.php?tid=566"  target="_blank"><img src="http://taoxiangren.com/attachment/mini/3c5d945739.jpg" width="47" height="47" /></a></li></ol>
+
+</div>
+<script>ddSliderPlayers('SlayerA_1','SlayerA_2',2,'current');</script>
+</div>
+		</div>
+		<div class="tu_boxA mb10">
+<h2><div class="view-hover" invokename="B1_今日推荐标题@图酷" altname="B1_今日推荐标题@图酷" channelid="tucool"><a href="#" class="more">更多</a><strong>今日推荐</strong>
+
+</div></h2>
+<div class="view-hover" invokename="B2_今日推荐图文@图酷" altname="B2_今日推荐图文@图酷" channelid="tucool"><div class="tu_dl_img cc"><dl class="one">
+		<dt><a href="read.php?tid=464"><img src="http://taoxiangren.com/attachment/mini/e6dedb9cb6.jpg" width="180" height="135" /></a></dt>
+		<dd>
+<p class="s6 cc mb10"><span class="imgView" title="浏览数" alt="浏览数">查看：</span><span class="mr10 fl" title="浏览数" alt="浏览数">113</span><span class="imgFav" title="收藏数" alt="收藏数">收藏：</span><span class="fl" title="收藏数" alt="收藏数"></span></p>
+<p class="mb5"><a href="read.php?tid=464">冬日剪影，暖洋洋的深州街</a></p>
+<p><a href="" class="s6 mr20">果果</a><span class="s6"> 张</span></p>
+		</dd>
+	</dl><dl >
+		<dt><a href="read.php?tid=449"><img src="http://taoxiangren.com/attachment/mini/128a956b3c.jpg" width="180" height="135" /></a></dt>
+		<dd>
+<p class="s6 cc mb10"><span class="imgView" title="浏览数" alt="浏览数">查看：</span><span class="mr10 fl" title="浏览数" alt="浏览数">25</span><span class="imgFav" title="收藏数" alt="收藏数">收藏：</span><span class="fl" title="收藏数" alt="收藏数"></span></p>
+<p class="mb5"><a href="read.php?tid=449">老中央电视台</a></p>
+<p><a href="" class="s6 mr20">小深州</a><span class="s6"> 张</span></p>
+		</dd>
+	</dl><dl >
+		<dt><a href="read.php?tid=438"><img src="http://taoxiangren.com/attachment/mini/f1cb2d1128.png" width="180" height="135" /></a></dt>
+		<dd>
+<p class="s6 cc mb10"><span class="imgView" title="浏览数" alt="浏览数">查看：</span><span class="mr10 fl" title="浏览数" alt="浏览数">80</span><span class="imgFav" title="收藏数" alt="收藏数">收藏：</span><span class="fl" title="收藏数" alt="收藏数"></span></p>
+<p class="mb5"><a href="read.php?tid=438">深州人在外地，北京中关村</a></p>
+<p><a href="" class="s6 mr20">wangpeng</a><span class="s6"> 张</span></p>
+		</dd>
+	</dl></div>
+
+</div>
+		</div>
+		<div class="tu_boxA mb10" style="padding: 0;">
+		<div class="tu_mode">
+		<ul class="cc">
+<li class="li">
+	<h2><div class="view-hover" invokename="B3_图片分类模块1@图酷" altname="B3_图片分类模块1@图酷" channelid="tucool"><a href="#" class="more">更多</a><strong>人物</strong>
+
+</div></h2>
+	<div class="view-hover" invokename="B4_图片分类模块列表1@图酷" altname="B4_图片分类模块列表1@图酷" channelid="tucool">	<ul class="tu_mode_ul cc"><li><a href="read.php?tid=464"><img src="http://taoxiangren.com/attachment/mini/cda4767f2b.jpg" width="138" height="103" /></a><p><a href="read.php?tid=464">冬日剪影，暖洋洋的深</a></p></li><li><a href="read.php?tid=449"><img src="http://taoxiangren.com/attachment/mini/cb643dc55d.jpg" width="138" height="103" /></a><p><a href="read.php?tid=449">老中央电视台</a></p></li><li><a href="read.php?tid=438"><img src="http://taoxiangren.com/attachment/mini/55ac68f07b.png" width="138" height="103" /></a><p><a href="read.php?tid=438">深州人在外地，北京中</a></p></li><li><a href="read.php?tid=435"><img src="http://taoxiangren.com/attachment/mini/74e816483a.png" width="138" height="103" /></a><p><a href="read.php?tid=435">深州评出“最美90后”</a></p></li></ul>
+
+</div>
+</li>
+<li class="li">
+	<h2><div class="view-hover" invokename="B5_图片分类模块2@图酷" altname="B5_图片分类模块2@图酷" channelid="tucool"><a href="#" class="more">更多</a><strong>风景</strong>
+
+</div></h2>
+	<div class="view-hover" invokename="B6_图片分类模块列表2@图酷" altname="B6_图片分类模块列表2@图酷" channelid="tucool">	<ul class="tu_mode_ul cc"><li><a href="read.php?tid=464"><img src="http://taoxiangren.com/attachment/mini/cda4767f2b.jpg" width="138" height="103" /></a><p><a href="read.php?tid=464">冬日剪影，暖洋洋的深</a></p></li><li><a href="read.php?tid=449"><img src="http://taoxiangren.com/attachment/mini/cb643dc55d.jpg" width="138" height="103" /></a><p><a href="read.php?tid=449">老中央电视台</a></p></li><li><a href="read.php?tid=438"><img src="http://taoxiangren.com/attachment/mini/55ac68f07b.png" width="138" height="103" /></a><p><a href="read.php?tid=438">深州人在外地，北京中</a></p></li><li><a href="read.php?tid=435"><img src="http://taoxiangren.com/attachment/mini/74e816483a.png" width="138" height="103" /></a><p><a href="read.php?tid=435">深州评出“最美90后”</a></p></li></ul>
+
+</div>
+</li>
+<li class="li">
+	<h2><div class="view-hover" invokename="B7_图片分类模块3@图酷" altname="B7_图片分类模块3@图酷" channelid="tucool"><a href="#" class="more">更多</a><strong>旅游</strong>
+
+</div></h2>
+	<div class="view-hover" invokename="B8_图片分类模块列表3@图酷" altname="B8_图片分类模块列表3@图酷" channelid="tucool">	<ul class="tu_mode_ul cc"><li><a href="read.php?tid=464"><img src="http://taoxiangren.com/attachment/mini/cda4767f2b.jpg" width="138" height="103" /></a><p><a href="read.php?tid=464">冬日剪影，暖洋洋的深</a></p></li><li><a href="read.php?tid=449"><img src="http://taoxiangren.com/attachment/mini/cb643dc55d.jpg" width="138" height="103" /></a><p><a href="read.php?tid=449">老中央电视台</a></p></li><li><a href="read.php?tid=438"><img src="http://taoxiangren.com/attachment/mini/55ac68f07b.png" width="138" height="103" /></a><p><a href="read.php?tid=438">深州人在外地，北京中</a></p></li><li><a href="read.php?tid=435"><img src="http://taoxiangren.com/attachment/mini/74e816483a.png" width="138" height="103" /></a><p><a href="read.php?tid=435">深州评出“最美90后”</a></p></li></ul>
+
+</div>
+</li>
+<li class="li">
+	<h2><div class="view-hover" invokename="B9_图片分类模块4@图酷" altname="B9_图片分类模块4@图酷" channelid="tucool"><a href="#" class="more">更多</a><strong>婚纱</strong>
+
+</div></h2>
+	<div class="view-hover" invokename="B10_图片分类模块列表4@图酷" altname="B10_图片分类模块列表4@图酷" channelid="tucool">	<ul class="tu_mode_ul cc"><li><a href="read.php?tid=575"><img src="http://taoxiangren.com/attachment/mini/8f58284427.jpg" width="138" height="103" /></a><p><a href="read.php?tid=575">深州农民喜收罕见大冬</a></p></li><li><a href="read.php?tid=570"><img src="http://taoxiangren.com/attachment/mini/9f291c61c5.jpg" width="138" height="103" /></a><p><a href="read.php?tid=570">大学生创作视频《舌尖</a></p></li><li><a href="read.php?tid=568"><img src="http://taoxiangren.com/attachment/mini/a5c556c350.jpg" width="138" height="103" /></a><p><a href="read.php?tid=568">回迁户漂泊5年难回迁,</a></p></li><li><a href="read.php?tid=566"><img src="http://taoxiangren.com/attachment/mini/fdb3ff115a.jpg" width="138" height="103" /></a><p><a href="read.php?tid=566">夜半三更盼天明,深州</a></p></li></ul>
+
+</div>
+</li>
+		</ul>
+		</div>
+		</div>
+		</div>
+		<div class="tu_aside">
+		<div class="tu_boxB mb10">
+<h2><strong><div class="view-hover" invokename="A3_头部公告标题@图酷" altname="A3_头部公告标题@图酷" channelid="tucool">公告
+</div></strong></h2>
+<div class="view-hover" invokename="A4_头部公告列表@图酷" altname="A4_头部公告列表@图酷" channelid="tucool"><ul class="tu_ul">
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+   <li><a href="#">phpwind8.5 图酷公告</a></li>
+</ul>
+
+</div>
+		</div>
+		<div class="mb10 cc">
+<div class="view-hover" invokename="B11_右侧广告位@图酷" altname="B11_右侧广告位@图酷" channelid="tucool"><a href="#" target="_blank"><img src="http://tiyan.phpwind.net/c/attachment/Mon_1103/60_6420_9bf60eeecb6dfa5.png" class="fl" /></a>
+
+</div>
+		</div>
+		<div class="tu_boxB mb10">
+<h2><strong><div class="view-hover" invokename="B13_右侧活跃图客标题@图酷" altname="B13_右侧活跃图客标题@图酷" channelid="tucool">活跃图客
+
+</div></strong></h2>
+<div class="view-hover" invokename="B14_右侧活跃图客列表@图酷" altname="B14_右侧活跃图客列表@图酷" channelid="tucool">	<ul class="tu_ul_img cc"><li><a href="read.php?tid=575" title="深州农民喜收罕见大冬瓜" alt="深州农民喜收罕见大冬瓜"><img src="http://taoxiangren.com/attachment/mini/04ade6bf2e.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=570" title="大学生创作视频《舌尖上的衡水》蹿红网络" alt="大学生创作视频《舌尖上的衡水》蹿红网络"><img src="http://taoxiangren.com/attachment/mini/6a2c9c76ad.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=568" title="回迁户漂泊5年难回迁,迁怒邻居打砸抢" alt="回迁户漂泊5年难回迁,迁怒邻居打砸抢"><img src="http://taoxiangren.com/attachment/mini/1939d9dc00.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=566" title="夜半三更盼天明,深州的苹果盼救星" alt="夜半三更盼天明,深州的苹果盼救星"><img src="http://taoxiangren.com/attachment/mini/5024b8f67b.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=559" title="多图!深州蜜桃观光园之行" alt="多图!深州蜜桃观光园之行"><img src="http://taoxiangren.com/attachment/mini/c49ed15e60.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=555" title="2012! 昨日兰州上空现不明飞行物 与飞碟相似" alt="2012! 昨日兰州上空现不明飞行物 与飞碟相似"><img src="http://taoxiangren.com/attachment/mini/9e5e669e14.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=552" title="村民买切糕因误会引群殴 警方称被毁切糕值16万" alt="村民买切糕因误会引群殴 警方称被毁切糕值16万"><img src="http://taoxiangren.com/attachment/mini/ccdc4a30b7.jpg" width="48" height="48" /></a></li><li><a href="read.php?tid=549" title="孕妈必吃的几种零食，怀孕还有好口福" alt="孕妈必吃的几种零食，怀孕还有好口福"><img src="http://taoxiangren.com/attachment/mini/a23d1fe374.jpg" width="48" height="48" /></a></li></ul>
+
+</div>
+		</div>
+		<div class="tu_boxB mb10">
+<h2><strong><div class="view-hover" invokename="B15_右侧精彩活动标题@图酷" altname="B15_右侧精彩活动标题@图酷" channelid="tucool">精华图酷
+</div></strong></h2>
+		<div class="tu_dl">
+<div class="view-hover" invokename="B16_右侧精彩活动列表@图酷" altname="B16_右侧精彩活动列表@图酷" channelid="tucool"><dl>
+		<dt><a href="read.php?tid=601">深州几处值得去逛的地方</a></dt>
+		<dd>1 老粮库：国家级文物保护单位
+2 西马庄蜜桃园：桃花盛开的时节，踏春好去处
+3 礼</dd>
+	</dl><dl>
+		<dt><a href="read.php?tid=600">蓝猫集团驻深州办事处，招</a></dt>
+		<dd>联系电话3100168，QQ:2323153949，刘经理</dd>
+	</dl><dl>
+		<dt><a href="read.php?tid=599">书店诚聘服务员</a></dt>
+		<dd>一营业中书店,现招女服务员2名.条件如下:年龄17---30岁;高中以上文化程度;身高1.5</dd>
+	</dl></div>
+		</div>
+		</div>
+		<div class="tu_boxB mb10">
+<h2><strong><div class="view-hover" invokename="B17_右侧热门图酷标题@图酷" altname="B17_右侧热门图酷标题@图酷" channelid="tucool">热门图酷
+</div></strong></h2>
+<div class="view-hover" invokename="B18_右侧热门图酷列表@图酷" altname="B18_右侧热门图酷列表@图酷" channelid="tucool">	<ol class="tu_ol"><li><a href="read.php?tid=601">深州几处值得去逛的地方</a></li><li><a href="read.php?tid=600">蓝猫集团驻深州办事处，招</a></li><li><a href="read.php?tid=599">书店诚聘服务员</a></li><li><a href="read.php?tid=598">深州南泊湾娱乐会所-招工</a></li><li><a href="read.php?tid=597">过年了谁要鞭炮啊 便宜的</a></li><li><a href="read.php?tid=596">石油公司招工</a></li><li><a href="read.php?tid=595">售小平米楼-牛的草</a></li><li><a href="read.php?tid=594">安平厂家烟花爆竹直销，需</a></li><li><a href="read.php?tid=593">全新iphone5 电信版合约机</a></li><li><a href="read.php?tid=590">出售英才小区车库一个</a></li></ol>
+
+</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="footer-wrap">
+<div class="c"></div>
+<div id="bottom"></div>
+
+<div id="footer">
+	<div class="mb5">
+	<div class="bottom tac">
+
+<span class="mr10"><a id="nav_key_up_12" href="sendemail.php" title="" >联系我们</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_13" href="simple/" title="" >无图版</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_14" href="m/introduce.php" title="" >手机浏览</a></span><span class="gray mr10">|</span><a href="job.php?action=erasecookie&verify=c22b73ee" rel="nofollow">清除Cookies</a>
+
+	</div>
+	</div>
+	<div class="f10 s6 tac">
+		<p class="mb5" id="footInfo">Powered by <a href="http://www.phpwind.net/" target="_blank" class="s4">phpwind v8.7</a>&nbsp;<a href="http://www.phpwind.com/certificate.php?host=taoxiangren.com" target="_blank" rel="nofollow">Certificate</a> Copyright<br /> &copy;2003-2011 <a href="http://taoxiangren.com/" target="_blank">桃乡人网</a> 版权所有 <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备11048881号-4</a> <script src="http://s15.cnzz.com/stat.php?id=4649710&web_id=4649710&show=pic" language="JavaScript"></script>
+ <span id="stats"></span>
+
+		</p>
+<script type="text/javascript" src="js/global.js"></script>
+
+
+<img height="0" width="0" src="mode.php?m=area&q=static&type=autostatic&alias=tucool" />
+
+	</div>
+</div></div>
+</body></html>
+<script>
+var openmenu = {'td_userinfomore' : 'menu_userinfomore','td_u' : 'menu_u','td_home' : 'menu_home','td_profile' : 'menu_profile','td_message' : 'menu_message','td_sort' : 'menu_sort','nav_key_up_25' : 'nav_key_sub_25','nav_key_up_18' : 'nav_key_sub_18','td_mymenu' : 'menu_mymenu'};
+window.onReady(function(){
+	read.InitMenu();
+	//消息提示
+	new messageTip(90).init();
+});
+</script>
+

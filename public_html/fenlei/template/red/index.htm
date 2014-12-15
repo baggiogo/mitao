@@ -1,0 +1,281 @@
+<!--
+<?php
+print <<<EOT
+--><div>$label[bennerad]</div>
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable" id="Itable">
+  <tr> 
+    <td height="200" valign="top" class="Main" align="left">
+      <table width="990" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="430"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="Infosort">
+        <tr> 
+          <td class="head">信息分类</td>           
+        </tr>
+        <tr> 
+          <td class="middle"> 
+<div id="IndexSort"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="indexlistsort">
+                    <!--
+EOT;
+$array=array_flip($Fid_db[0]);
+$array=array_chunk($array,1);
+foreach($array AS $key_1=>$array1){
+print <<<EOT
+-->      <tr> 
+<!--
+EOT;
+foreach($array1 AS $key_2){
+$class=($key_1%2==0)?'c1':'c2';
+$url=get_info_url('',$key_2,$city_id);
+print <<<EOT
+-->  
+			   
+			    <td width='50%' class="$class"> 
+                  <div class="bigsort"><a href="$url">{$Fid_db[name][$key_2]}</a></div>
+                  <div class="smallsort"> 
+                    <!--
+EOT;
+$i=0;
+foreach($Fid_db[$key_2] AS $key_3=>$rs){
+$i++;
+if($webdb[Info_showsortnum]>0&&$i>$webdb[Info_showsortnum]){break;}
+$InfoNum[$key_3]=intval($InfoNum[$key_3]);
+$url=get_info_url('',$key_3,$city_id);
+$color=$Fid_db[ifcolor][$fid]?"color:red;":'';
+print <<<EOT
+-->
+                    <span><a href="$url" style="$color">{$Fid_db[name][$key_3]}</a><a class="num">({$InfoNum[$key_3]})</a></span> 
+                    <!--
+EOT;
+}print <<<EOT
+-->
+                  </div>
+                </td>
+				
+				 <!--
+EOT;
+}print <<<EOT
+--> 
+				
+              </tr>
+           <!--
+EOT;
+}print <<<EOT
+--> </table>
+            
+          </div>
+            </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table></td>
+          <td width="300" style="padding-left:5px;padding-top:8px;" id="Index_center">
+            <div>$label[rollpic]</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+  <tr>
+                <td class="h"><span class="L">焦点信息</span><span class="R"><a href="javascript:alert('系统规定首页焦点处显示每条信息收费{$webdb[MoneyName]} {$webdb[AdInfoIndexShow]} {$webdb[MoneyDW]},显示 {$webdb[AdInfoShowTime]} 天。修改某条信息,即可设置.');">如何成为焦点信息?</a></span></td>
+  </tr>
+  <tr>
+                <td class="m">$label[buyadinfo]</td>
+  </tr>
+</table><div>$label[centerad]</div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+  <tr>
+                <td class="h"><span class="L">图文信息</span> </td>
+  </tr>
+  <tr>
+                <td class="m" valign="top"> $label[infoimg]</td>
+  </tr>
+</table>
+          </td>
+          <td valign="top" id="Index_right" style="padding-left:8px;">
+		  
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+              <tr>
+                <td class="h"><span class="L">网站公告</span></td>
+              </tr>
+              <tr>
+                <td class="m">$label[afd43s]</td>
+              </tr>
+            </table>
+          <div style="text-align:center;margin:5px;"><img src="$webdb[www_url]/images/red/ad6.jpg"></div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+              <tr>
+                <td class="h"><span class="L">最新信息</span></td>
+              </tr>
+              <tr>
+                <td class="m">$label[newinfo]</td>
+              </tr>
+            </table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+              <tr>
+                <td class="h"><span class="L">热门信息</span></td>
+              </tr>
+              <tr>
+                <td class="m">$label[hotinfo]</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="t">
+              <tr> 
+                <td class="h"><span class="L">新手上路</span></td>
+              </tr>
+              <tr> 
+                <td class="m">$label[memberhelp]</td>
+              </tr>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="t service">
+              <tr> 
+                <td class="h"><span class="L">客服中心</span></td>
+              </tr>
+              <tr> 
+                <td class="m">QQ:88888888<br>
+                  MSN:bjds@msn.com<br>
+                  邮箱:vip@vip.com<br>
+                  电话:020-88888888<br>
+                  传真:020-33333333 </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+     
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="MainTable" id="indexMoreSort">
+  <tr> 
+    <td  valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" class="moresort">
+        <!--
+EOT;
+$array=array_chunk($listdb_moresort,3);
+foreach($array AS $key2=>$array2){
+$i++;
+print <<<EOT
+-->
+        <tr> 
+          <!--
+EOT;
+foreach($array2 AS $key1=>$rss){
+$i++;
+$url=get_info_url('',$rss[fid],$city_id);
+print <<<EOT
+-->
+          <td class="c$key1"> 
+            <table border="0" cellspacing="0" cellpadding="0" class="dragTable">
+              <tr> 
+                <td class="head"> 
+                  <h3 class="L"></h3>
+                  <span class="TAG"><a href="$url">$rss[name]</a></span> 
+                  <h3 class="R"></h3>
+                </td>
+              </tr>
+              <tr> 
+                <td class="middle"> 
+                  <!--
+EOT;
+foreach($rss[article] AS $key2=>$rs){
+$url=get_info_url($rs[id],$rs[fid],$city_id);
+print <<<EOT
+-->
+                  <div>·<a href="$url" title="$rs[full_title]" target="_blank">$rs[title]</a> 
+                  </div>
+                  <!--
+EOT;
+}print <<<EOT
+-->
+                </td>
+              </tr>
+              <tr> 
+                <td class="foot"> 
+                  <h3 class="L"></h3>
+                  <h3 class="R"></h3>
+                </td>
+              </tr>
+            </table>
+          </td>
+          <!--
+EOT;
+}
+print <<<EOT
+-->
+        </tr>
+        <!--
+EOT;
+}
+print <<<EOT
+-->
+      </table>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" style="margin-top:0px;" class="MainTable">
+  <tr> 
+    <td height="40" valign="top" class="Main"> 
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" class="dragTable">
+        <tr> 
+          <td class="head"> 
+            <h3 class="L"></h3>
+            <span class="TAG">友情链接</span> 
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+        <tr> 
+          <td class="middle"> 
+            <div class="imgfriendlink"> 
+              <!--
+EOT;
+foreach($friendlinkDB[1] AS $key=>$rs){
+print <<<EOT
+-->
+              <A HREF="$rs[url]" target=_blank><img alt="名称:$rs[name]\r\n描述:$rs[descrip]" src="$rs[logo]" width="88" height="31" border=0></A> 
+              <!--
+EOT;
+}
+foreach($CFLDB["i_$city_id"] AS $key=>$rs){
+print <<<EOT
+-->
+              <A HREF="$rs[url]" target=_blank><img alt="名称:$rs[name]\r\n描述:$rs[descrip]" src="$rs[logo]" width="88" height="31" border=0></A> 
+              <!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+            <div class="wordfriendlink"> 
+              <!--
+EOT;
+foreach($friendlinkDB[0] AS $key=>$rs){
+print <<<EOT
+-->
+              <A HREF="$rs[url]" target="_blank" title="描述:$rs[descrip]">$rs[name]</A>&nbsp; 
+              <!--
+EOT;
+}
+foreach($CFLDB["w_$city_id"] AS $key=>$rs){
+print <<<EOT
+-->
+              <A HREF="$rs[url]" target="_blank" title="描述:$rs[descrip]">$rs[name]</A>&nbsp; 
+              <!--
+EOT;
+}
+print <<<EOT
+-->
+            </div>
+          </td>
+        </tr>
+        <tr> 
+          <td class="foot"> 
+            <h3 class="L"></h3>
+            <h3 class="R"></h3>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!--
+EOT;
+?>
+-->

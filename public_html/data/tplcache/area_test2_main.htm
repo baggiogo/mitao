@@ -1,0 +1,706 @@
+<!--<?php
+print <<<EOT
+-->
+EOT;
+require modeEot('header');
+print <<<EOT
+<script type="text/javascript" src="mode/area/js/ddsliderplayer.js"></script>	
+<div id="nav_sub" class="mb10">
+  <dl>
+<div class="view-hover" invokename="副导航@test2" altname="副导航@test2" channelid="test2">    <dt id="tag_01">热门</dt>
+    <dd><a href="http://taoxiangren.com/fenlei/list.php?fid=1&amp;city_id=340" title="" target="_blank">买房租房</a><a href="http://taoxiangren.com/thread.php?fid=12" title="" target="_blank">深州美食</a><a href="http://taoxiangren.com/thread.php?fid=18" title="" target="_blank">家居装修</a><a href="http://taoxiangren.com/fenlei/list.php?fid=3&amp;city_id=340" title="" target="_blank">找工作 </a><a href="http://taoxiangren.com/fenlei/list.php?fid=3&amp;city_id=340" title="" target="_blank">人才招聘</a><a href="http://taoxiangren.com/fenlei" title="" target="_blank">生活服务</a></dd>
+    <dt id="tag_02">生活</dt>
+    <dd style="width:285px;"><a href="http://taoxiangren.com/thread.php?fid=17" title="" target="_blank">房产楼市</a><a href="http://taoxiangren.com/thread.php?fid=25" title="" target="_blank">小区论坛</a><a href="http://taoxiangren.com/thread.php?fid=20" title="" target="_blank">妈咪宝贝</a><a href="http://taoxiangren.com/thread.php?fid=19" title="" target="_blank">喜庆婚嫁</a><a href="http://taoxiangren.com/thread.php?fid=17" target="_blank">楼盘信息</a><a href="http://taoxiangren.com/thread.php?fid=19" target="_blank">我要结婚</a><a href="http://taoxiangren.com/thread.php?fid=20" title="" target="_blank">育儿经验</a><a href="http://taoxiangren.com/thread.php?fid=12" title="" target="_blank">吃吃喝喝</a></dd>
+    <dt id="tag_03">服务</dt>
+    <dd style="width:355px;"><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">网上卖场</a><a href="http://taoxiangren.com/thread.php?fid=22" title="" target="_blank">我要租房</a><a href="http://taoxiangren.com/thread.php?fid=22" title="" target="_blank">二手房产</a><a href="http://taoxiangren.com/thread.php?fid=23" title="" target="_blank">打折信息</a><a href="http://taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a><a href="http://taoxiangren.com/thread.php?fid=13" target="_blank">我要征婚</a><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">我要出售</a><a href="http://taoxiangren.com/thread.php?fid=3" title="" target="_blank">百姓声音</a><a href="http://taoxiangren.com/thread.php?fid=15" title="" target="_blank">我要买车</a><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">购物交流</a></dd>
+</div>
+  </dl>
+</div>
+EOT;
+list($htmlAdvert,$arrayAdvert) = pwAdvert('Site.NavBanner1',$fid);
+if($htmlAdvert){
+print <<<EOT
+<div class="ads">$htmlAdvert</div>
+EOT;
+}
+list($htmlAdvert,$arrayAdvert) = pwAdvert('Site.NavBanner2',$fid);
+if($htmlAdvert){
+print <<<EOT
+<div class="ads">$htmlAdvert</div>
+EOT;
+}
+print <<<EOT
+<div id="box1">
+<div class="box1left fl">
+<div class="h_tit"><div class="view-hover" invokename="今日热点title@test2" altname="今日热点title@test2" channelid="test2"><h2><a href="#" target="_blank">今日热点</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=3" target="_blank" title="版块链接">百姓话题</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">深州小吃</a>|<a href="http://taoxiangren.com/thread.php?fid=14" target="_blank" title="版块链接">我拍我秀</a>|<a href="http://taoxiangren.com/thread.php?fid=17" target="_blank" title="版块链接">房产楼市</a>|<a href="http://taoxiangren.com/thread.php?fid=16" target="_blank" title="版块链接">闲聊广场</a></span>
+</div></div>
+<div class="fl"><div class="pwSlideWrap"><div class="view-hover" invokename="图片播放器@test2" altname="图片播放器@test2" channelid="test2"><div id="pwSlidePlayer" class="pwSlide">
+EOT;
+$pwresult = pwTplGetData('图片播放器@test2','图片');
+print <<<EOT
+<ul class="switch" id="PP1_A">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="switchItem" style="display:"><a href="$val[url]" target="_blank"><img src="$val[image]" width="286" height="236" /></a>
+                    <h3><a href="$val[url]" target="_blank">$val[title]</a></h3>
+                    <p>$val[descrip]<a href="$val[url]" target="_blank">[详细]</a></p></li>
+EOT;
+}print <<<EOT
+</ul>
+				<div class="pwSlide-bg"></div>
+				<ul class="SwitchNav" id="PP1_B">
+EOT;
+for($i = 1; $i<=$key+1; $i++){
+print <<<EOT
+<li class="switchNavItem"><a href="#" onclick="return false;">{$i}</a></li>
+EOT;
+}
+print <<<EOT
+</ul>
+			</div>
+		<script>onReady(function(){ddSliderPlayers('PP1_A','PP1_B',4,'current');})</script>
+        
+        
+</div></div>
+<div class="lifehelp">
+<h1><span class="fr" id="zstab"><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a></span><strong>便民小工具</strong></h1>
+        <div class="helpUL">
+        	<div id="contain">
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民1@test2" altname="便民1@test2" channelid="test2"><li><a target="_blank" href="http://www.weather.com.cn" title="天气查询"><img src="$channelImagePath/icon/tq.gif"><p>天气查询</p></a></li>
+<li><a target="_blank" href="http://site.baidu.com/list/wannianli.htm" title="万年历"><img src="$channelImagePath/icon/wnl.gif"><p>万年历</p></a></li>
+<li><a target="_blank" href="http://www.ip138.com/" title="IP查询"><img src="$channelImagePath/icon/ip.gif"><p>IP查询</p></a></li>
+<li><a target="_blank" href="http://www.showji.com" title="归属地"><img src="$channelImagePath/icon/gsd.gif"><p>归属地</p></a></li>
+<li><a target="_blank" href="http://www.youbian.com/" title="邮编查询"><img src="$channelImagePath/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="http://www.kuaidi100.com" title="快递查询"><img src="$channelImagePath/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="http://video.baidu.com" title="电影查询"><img src="$channelImagePath/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="http://www.lecai.com" title="彩票查询"><img src="$channelImagePath/icon/cp.gif"><p>彩票查询</p></a></li>
+    
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民2@test2" altname="便民2@test2" channelid="test2"><li><a target="_blank" href="#" title="计算器"><img src="$channelImagePath/icon/jsq.gif"><p>计算器</p></a></li>
+<li><a target="_blank" href="#" title="购房计算"><img src="$channelImagePath/icon/gf.gif"><p>购房计算</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="$channelImagePath/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="$channelImagePath/icon/jj.gif"><p>家居计算</p></a></li>
+<li><a target="_blank" href="#" title="公交换乘"><img src="$channelImagePath/icon/gj.gif"><p>公交换乘</p></a></li>
+<li><a target="_blank" href="#" title="火车时刻"><img src="$channelImagePath/icon/hc.gif"><p>火车时刻</p></a></li>
+<li><a target="_blank" href="#" title="长途汽车"><img src="$channelImagePath/icon/ct.gif"><p>长途汽车</p></a></li>
+<li><a target="_blank" href="#" title="交通违章"><img src="$channelImagePath/icon/wz.gif"><p>交通违章</p></a></li>
+
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民3@test2" altname="便民3@test2" channelid="test2"><li><a target="_blank" href="#" title="机票查询"><img src="$channelImagePath/icon/jp.gif"><p>机票查询</p></a></li>
+<li><a target="_blank" href="#" title="邮编查询"><img src="$channelImagePath/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="#" title="快递查询"><img src="$channelImagePath/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="#" title="电影查询"><img src="$channelImagePath/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="$channelImagePath/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="$channelImagePath/icon/jj.gif"><p>家居计算</p></a></li>
+    
+        
+        
+        
+        
+        
+</div></ul>
+        </div>
+        <script>ddSliderPlayers('contain','zstab',0,'on');</script>
+      </div>
+      </div>
+</div>
+<div class="fr hotlist">
+<div class="view-hover" invokename="焦点新闻@test2" altname="焦点新闻@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('焦点新闻@test2','头条');
+foreach($pwresult as $key=>$val){print <<<EOT
+<h2><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></h2>
+<p>$val[descrip]...<a href="$val[url]" target="_blank">[阅读全文]</a></p>
+EOT;
+}print <<<EOT
+<ul>
+EOT;
+$pwresult = pwTplGetData('焦点新闻@test2','列表上');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span>[<a href="$val[forumurl]" target="_blank">$val[forumname]</a>]</span><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}
+$pwresult = pwTplGetData('焦点新闻@test2','广告');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="ad"><a href="$val[url]" target="_blank"><img src="$val[image]" title="$val[title]" /></a></li>
+EOT;
+}
+$pwresult = pwTplGetData('焦点新闻@test2','列表下');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span>[<a href="$val[forumurl]" target="_blank">$val[forumname]</a>]</span><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+        
+        
+        
+        
+        
+</div>
+</div>
+</div>
+<div class="box1right fr">
+<div id="notice">
+      <div class="view-hover" invokename="合作电话@test2" altname="合作电话@test2" channelid="test2"><p>官方qq群:64218497，欢迎加入</p>
+</div>
+      <div id="ScrollMe">
+	  <div class="view-hover" invokename="滚动公告@test2" altname="滚动公告@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('滚动公告@test2','列表');
+print <<<EOT
+<ul class="rolls">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+	  </div>
+<script type="text/javascript">
+new Marquee(["ScrollMe","rolls"],0,1,245,18,20,4000,3000,18)
+</script>
+<div id="weibo"><div class="view-hover" invokename="微博@test2" altname="微博@test2" channelid="test2"><a href="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=136&height=24&uid=3046211572&style=2&btn=light&dpc=1#" target="_blank" title="收听新浪微博" rel="nofollow"><img src="$channelImagePath/tt_sina.png" alt="新浪微博" rel="nofollow" /></a><a href="#" target="_blank" title="收听腾讯微博" rel="nofollow" ><img src="$channelImagePath/tt_qq.png" alt="腾讯微博" rel="nofollow" /></a>
+
+
+</div></div>
+</div>
+
+<!--
+EOT;
+if(!$windid){
+print <<<EOT
+-->			
+<!--登录前-->
+<div class="login-box" id="currentLoginUserInfo"><div class="logins" style="padding-left:10px">
+                <form action="login.php" name="login_FORM" method="post">
+<input type="hidden" name="jumpurl" value="http://{$pwServer['HTTP_HOST']}{$REQUEST_URI}" />
+<input type="hidden" name="step" value="2" />
+<ul>
+<li class="login-txt"><input class="txt txt-large" name="pwuser" id="nav_pwuser" placeholder="帐号"  maxlength="20" /></li>	
+<li class="login-txt"><input class="txt txt-large focus" type="password" name="pwpwd" 
+ onfocus="if(IsElement('nav_logintab')) getObj('nav_logintab').style.display='';this.value='';var o_nav_logintab = IsElement('nav_logintab') ? getObj('nav_logintab') : ''; PW_popEvent(o_nav_logintab);" placeholder="密码"/></li>
+ 	
+<li class="login-keep" style="width:230px"><a href="sendpwd.php" style="color:#999">忘记密码</a><label><input type="checkbox" value="315360000" name="cookietime">下次自动登录</label></li>	
+
+<li class="login-btn" style=" height:29px; width:230px;"> 
+<input type="submit" class="register-btn btn" style="border:0;float:left;cursor: pointer; width:90px; height:29px;" value="登录">
+
+<a id="regist" class="register-btn btn1 btn" name="register-btn" href="register.php#breadCrumb" style="color:#FFF">立即注册</a>
+</li><li class="login-others cc">或者<a class="qq" href="javascript:;" onclick="OutSiteLogin.showQQLogin('OWS_QQ_entry_homepage','hangzhou');">QQ登录</a><a class="wb" href="javascript:;" onclick="OutSiteLogin.showSinaLogin('OWS_Sina_entry_homepage','hangzhou');">微博登录</a></li>
+</ul>
+</form>
+                </div></div>
+<!--
+EOT;
+}else{ print <<<EOT
+-->
+<!--登录后-->
+
+<div class="login-box" id="currentLoginUserInfo"><div class="logined">
+<div class="cc link6 logined-hd">
+<em class="uname">
+<a href="u.php"><img src="$_LoginInfo[faceurl]" alt="$windid" class="avatar"></a>
+<a href="u.php">$windid</a></em><a class="logout" href="$loginouturl">[退出]</a>
+<p class="uadrs">等级: $gp_grouptitle
+<!--
+EOT;
+if (CkInArray($windid, $manager) || $SYSTEM['allowadmincp']) {print <<<EOT
+-->
+<a href="$db_adminfile" target="_blank">系统设置</a></ul>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+</p>
+<p class="uopt" style="_width:185px;"><a href="message.php?type=sms" class="msg"><span>私信</span><em><i>{$winddb['newpm']}</i></em></a><a href="message.php?type=notice" class="tip"><span>提醒</span><em><i>{$winddb['newnotice']}</i></em></a><a href="apps.php?q=weibo&do=refer" class="me"><span>@我</span><em><i>{$winddb['newreferto']}</i></em></a>
+</p>
+</div>
+<div class="logined-bd">
+<div class="udata cc">
+
+<a href="#"><p>今日</p><div>$winddb[todaypost]</div></a>
+
+<a href="apps.php?q=article"><p>帖子</p><div>$winddb[postnum]</div></a>
+
+<a href="userpay.php"><p>$db_moneyname</p><div>$winddb[money]</div></a>
+
+<a href="userpay.php"><p>{$db_rvrcname}</p><div>$userrvrc</div></a>
+
+<a href="u.php?a=friend&type=attentioned"><p>粉丝</p><div>{$winddb['fans']}</div></a>
+</div>
+<p class="tc mt15"><a class="btn uhome" href="u.php">立即进入我的空间</a></p>
+
+</div></div></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+
+<div class="hdkt">
+<div class="h_tit" style="margin-bottom:0"><div class="view-hover" invokename="活动看台title@test2" altname="活动看台title@test2" channelid="test2"><h2><a href="#" target="_blank">活动看台</a></h2><span class="fr"><a href="#" target="_blank" title="更多">更多>></a></span>
+			
+</div></div>
+<ul>
+<div class="view-hover" invokename="活动看台list@test2" altname="活动看台list@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('活动看台list@test2','图文');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]"><img src="$val[image]" title="$val[title]" /></a><h2><a href="$val[url]">$val[title]</a></h2><p>活动时间：$val[descrip]<a href="$val[url]" target="_blank" title="我要参加">我要参加</a></p></li>
+EOT;
+}print <<<EOT
+</div>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告1@test2" altname="通栏广告1@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('通栏广告1@test2','图文');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]"><img src="$val[image]" title="$val[title]" /></a>
+EOT;
+}print <<<EOT
+</div></div>
+
+<div id="box2">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="精彩图片title@test2" altname="精彩图片title@test2" channelid="test2"><h2><a href="#" target="_blank">精彩图片</a></h2><span class="fr"><a href="#" target="_blank" title="城市热点">城市热点</a>|<a href="#" target="_blank" title="24小时热点">24小时热点</a>|<a href="#" target="_blank" title="拍客制造">拍客制造</a>|<a href="#" target="_blank" title="拍客征集令">拍客征集令</a>|<a href="#" target="_blank" title="热门播客">热门播客</a></span>
+
+</div></div>
+
+<ul class="colorful cc">
+<div class="view-hover" invokename="精彩图片@test2" altname="精彩图片@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('精彩图片@test2','大图');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="photo-big"><a title="$val[title]" href="$val[url]" target="_blank"><img alt="$val[title]" src="$val[image]"><span></span><em>$val[title]</em></a></li>
+EOT;
+}
+$pwresult = pwTplGetData('精彩图片@test2','小图');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a title="$val[title]" href="$val[url]" target="_blank"><img alt="$val[title]" src="$val[image]"><span></span><em>$val[title]</em></a></li>
+EOT;
+}print <<<EOT
+</div>
+</ul>
+
+</div>
+
+<div class="ads"><div class="view-hover" invokename="通栏广告2@test2" altname="通栏广告2@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('通栏广告2@test2','图文');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]"><img src="$val[image]" title="$val[title]" /></a>
+EOT;
+}print <<<EOT
+</div></div>
+
+<div id="box3">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="时尚生活title@test2" altname="时尚生活title@test2" channelid="test2"><h2><a href="#" target="_blank">时尚生活</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=15" target="_blank" title="版块链接">深州车友</a>|<a href="http://taoxiangren.com/thread.php?fid=20" target="_blank" title="版块链接">妈咪宝贝</a>|<a href="http://taoxiangren.com/thread.php?fid=21" target="_blank" title="版块链接">网上购物</a>|<a href="http://taoxiangren.com/thread.php?fid=18" target="_blank" title="版块链接">我爱装修</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">吃遍深州</a></span>
+
+</div></div>
+
+<div class="box3info">
+    <div class="infoImg">
+<div class="view-hover" invokename="精彩图文@test2" altname="精彩图文@test2" channelid="test2">      <h2>房产频道</h2>
+EOT;
+$pwresult = pwTplGetData('精彩图文@test2','大图');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" class="pr10">
+        <img src="$val[image]" width="256" height="127" alt="$val[title]">
+      </a>
+      <a href="$val[url]" class="ceb6100">$val[title]</a> 
+      <span class="c959595">$val[descrip]&#46;&#46;.</span>
+EOT;
+}print <<<EOT
+<div class="box3msg">
+EOT;
+$pwresult = pwTplGetData('精彩图文@test2','列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]">$val[title]</a>
+EOT;
+}print <<<EOT
+</div>
+
+
+
+
+</div>
+    </div>
+    <div class="favoriteSelect">
+<div class="view-hover" invokename="贴贴精选上@test2" altname="贴贴精选上@test2" channelid="test2">      <h2 class="sosobg">生活信息</h2>
+EOT;
+$pwresult = pwTplGetData('贴贴精选上@test2','大标题');
+foreach($pwresult as $key=>$val){print <<<EOT
+<b><a href="$val[url]">$val[title]</a></b>
+EOT;
+}print <<<EOT
+<div class="tac">
+EOT;
+$pwresult = pwTplGetData('贴贴精选上@test2','小标题');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" class="ceb6100">[$val[title]]</a>&#160;
+EOT;
+}print <<<EOT
+</div>
+EOT;
+$pwresult = pwTplGetData('贴贴精选上@test2','列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[forumurl]" class="cb28850">[$val[forumname]]</a><a href="$val[url]">$val[title]</a> <br>
+EOT;
+}print <<<EOT
+</div>
+<div class="view-hover" invokename="贴贴精选下@test2" altname="贴贴精选下@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('贴贴精选下@test2','大标题');
+foreach($pwresult as $key=>$val){print <<<EOT
+<b class="line"><a href="$val[url]">$val[title]</a></b>
+EOT;
+}print <<<EOT
+<div class="tac">
+EOT;
+$pwresult = pwTplGetData('贴贴精选下@test2','小标题');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" class="ceb6100">[$val[title]]</a>&nbsp;
+EOT;
+}print <<<EOT
+</div>
+EOT;
+$pwresult = pwTplGetData('贴贴精选下@test2','列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[forumurl]" class="cb28850">[$val[forumname]]</a><a href="$val[url]">$val[title]</a> <br>
+EOT;
+}print <<<EOT
+</div>
+    </div>
+
+    <div class="hotSort">
+      <h2><div class="view-hover" invokename="热帖排行title@test2" altname="热帖排行title@test2" channelid="test2"><a href="#" class="fr f12" style="font-weight:100">查看更多</a>育儿交流
+
+
+</div></h2>
+      <div class="sort">
+        <ul>
+<div class="view-hover" invokename="热帖排行list@test2" altname="热帖排行list@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('热帖排行list@test2','第一名');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="pl0">
+            <b>
+              <a href="$val[url]" class="ceb6100">$val[title]</a>
+            </b>
+            <a href="$val[url]" class="fl pr10">
+              <img src="$val[image]" width="100" height="80" alt="$val[title]">
+            </a>
+            <span class="c959595">$val[descrip]...</span>
+          </li>
+EOT;
+}
+$pwresult = pwTplGetData('热帖排行list@test2','列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[forumurl]" class="cb28850">[$val[forumname]]</a> <a href="$val[url]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div>
+
+
+        </ul>
+        <div class="c"></div>
+        <div class="view-hover" invokename="热帖排行ad@test2" altname="热帖排行ad@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('热帖排行ad@test2','广告');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank"><img src="$val[image]" width="255" height="70" alt="$val[title]" title="$val[title]"></a>
+EOT;
+}print <<<EOT
+</div>
+      </div>
+    </div>
+      <div class="c"></div>
+      <div class="MemberShow">
+        <b class="rc-lt"></b>
+        <b class="rc-rt"></b>
+        <a class="rc-nl rr" id="go_left"></a>
+        <a class="rc-nr rr" id="go_right"></a>
+        <div id="scroll" class="scroll">
+	        <ul id="scrollul">
+<div class="view-hover" invokename="会员风采@test2" altname="会员风采@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('会员风采@test2','会员风采');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+<a href="$val[url]" class="fl pr10">
+	                <img src="$val[image]" alt="$val[title]">
+	              </a>
+	              <span>
+	                <a href="$val[url]" class="ceb6100">$val[title]</a>
+	                <em class="c959595">$val[descrip]</em>
+	              </span>
+	            </li>
+EOT;
+}print <<<EOT
+</div>
+	          	        </ul>
+        </div>
+<script type="text/javascript">
+new Marquee(
+{
+	MSClass	  : ["scroll","scrollul"],
+	Direction : 2,
+	PrevBtnID : "go_left",
+	NextBtnID : "go_right",
+	Step	  : 0.3,
+	Width	  : 828,
+	Height	  : 60,
+	Timer	  : 20,
+	DelayTime : 3000,
+	WaitTime  : 5000,
+	ScrollStep: 275,
+	SwitchType: 0,
+	AutoStart : true
+});
+</script>
+     </div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告3@test2" altname="通栏广告3@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('通栏广告3@test2','图文');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]"><img src="$val[image]" title="$val[title]" /></a>
+EOT;
+}print <<<EOT
+</div></div>
+
+<div id="box4">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="论坛版块title@test2" altname="论坛版块title@test2" channelid="test2"><h2><a href="#" target="_blank">论坛版块</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=3" target="_blank" title="版块链接">百姓话题</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">深州美食</a>|<a href="http://taoxiangren.com/thread.php?fid=13" target="_blank" title="版块链接">友缘深州</a>|<a href="http://taoxiangren.com/thread.php?fid=21" target="_blank" title="版块链接">二手市场</a>|<a href="http://taoxiangren.com/thread.php?fid=24" target="_blank" title="版块链接">人才招聘</a></span>
+
+</div></div>
+
+<div class="box4info cc">
+<div class="fl forumlist">
+			<ul class="club-list">
+<!--
+EOT;
+$query = $db->query("SELECT a.fid,a.name,a.logo,a.descrip,b.tpost,b.topic FROM pw_forums a,pw_forumdata b where a.fid=b.fid and a.type='forum' order by a.vieworder asc LIMIT 16");
+while ($forums = $db->fetch_array($query)) {
+$f_name = $forums['name'];
+$f_posts = $forums['tpost'];
+$f_logo  = $forums['logo'];
+$f_descrip = $forums['descrip'];
+$f_url = 'thread.php?fid='.$forums['fid'];
+print<<<EOT
+-->
+<li class="club{$forums[fid]} club">
+<div class="board">
+<h2><a href="{$f_url}" target="_blank" title="{$f_descrip}">{$f_name}</a><span class="todayPost">(24时新贴：{$f_posts})</span></h2>
+<div class="board-logo"><!--
+EOT;
+if($forums['logo']){print <<<EOT
+-->
+          			<a href="thread.php?fid=$forums[fid]" target="_blank"><img src="attachment/$forums[logo]" /></a>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+          			<a href="thread.php?fid=$forums[fid]" target="_blank"><img src="$channelImagePath/nologo.jpg" /></a>
+<!--
+EOT;
+}print <<<EOT
+--></div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>{$f_descrip}</p>
+</div>
+</div>
+</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+</ul>
+</div>
+
+<div class="fr" style="padding-top:5px">
+
+<div class="hotSort">
+    
+    
+      <h2 id="sort_tab"><span class="switchNavItem">今日</span><span class="switchNavItem">本周</span><span class="switchNavItem">本月</span></h2>
+      <div class="sort" id="sort_list">
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="今日帖子排行@test2" altname="今日帖子排行@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('今日帖子排行@test2','列表');
+foreach($pwresult as $key=>$val){
+$count = $key+1;
+print <<<EOT
+<li><em class="lc$count">$count</em><span class="r_txt"><a target="_blank" href="$val[url]">$val[title]</a><a target="_blank" href="$val[url]"><span>(共$val[hits]人参与)</span></a></span></li>
+EOT;
+}print <<<EOT
+</div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本周帖子排行@test2" altname="本周帖子排行@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('本周帖子排行@test2','列表');
+foreach($pwresult as $key=>$val){
+$count = $key+1;
+print <<<EOT
+<li><em class="lc$count">$count</em><span class="r_txt"><a target="_blank" href="$val[url]">$val[title]</a><a target="_blank" href="$val[url]"><span>(共$val[hits]人参与)</span></a></span></li>
+EOT;
+}print <<<EOT
+</div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本月帖子排行@test2" altname="本月帖子排行@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('本月帖子排行@test2','列表');
+foreach($pwresult as $key=>$val){
+$count = $key+1;
+print <<<EOT
+<li><em class="lc$count">$count</em><span class="r_txt"><a target="_blank" href="$val[url]">$val[title]</a><a target="_blank" href="$val[url]"><span>(共$val[hits]人参与)</span></a></span></li>
+EOT;
+}print <<<EOT
+</div></ol>
+        </div>
+        <script>ddSliderPlayers('sort_list','sort_tab',0,'on');</script>
+              <h2 style="margin-top:10px"><div class="view-hover" invokename="会员排行title@test2" altname="会员排行title@test2" channelid="test2">会员排行
+</div></h2>
+      <div class="sort">
+		<dl>
+<div class="view-hover" invokename="会员排行@test2" altname="会员排行@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('会员排行@test2','列表');
+foreach($pwresult as $key=>$val){
+$count = $key+1;
+print <<<EOT
+<dd><span class="fr">$val[value] 贴</span><i>$count</i><a target="_blank" href="$val[url]">$val[title]</a></dd>
+EOT;
+}print <<<EOT
+</div>
+        </dl>
+      </div>
+<div class="ad2" style="padding-top:12px"><div class="view-hover" invokename="论坛版块ad@test2" altname="论坛版块ad@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('论坛版块ad@test2','广告');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a target="_blank" href="$val[url]"><img src="$val[image]" width="260" height="90" title="$val[title]" /></a>
+EOT;
+}print <<<EOT
+</div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告4@test2" altname="通栏广告4@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('通栏广告4@test2','图文');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]"><img src="$val[image]" title="$val[title]" /></a>
+EOT;
+}print <<<EOT
+</div></div>
+
+<div id="box5">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="友情链接title@test2" altname="友情链接title@test2" channelid="test2"><h2>友情链接</h2><span class="fr"><a href="#" target="_blank" title="申请友情链接">+ 申请友情链接 +</a></span>
+
+</div></div>
+<div class="box5info"><div class="view-hover" invokename="友情链接list@test2" altname="友情链接list@test2" channelid="test2">
+EOT;
+$pwresult = pwTplGetData('友情链接list@test2','图片友情链接');
+print <<<EOT
+<ul class="cc">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank"><img alt="$val[title]" src="$val[image]"></a></li>
+EOT;
+}print <<<EOT
+</ul>
+EOT;
+$pwresult = pwTplGetData('友情链接list@test2','文字友情链接');
+print <<<EOT
+<ul class="cc">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+</div>
+
+<div class="c"></div>
+EOT;
+require modeEot('footer');
+print <<<EOT
+<!--
+EOT;
+?>-->

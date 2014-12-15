@@ -1,0 +1,32 @@
+<!--<?php
+print <<<EOT
+-->
+<div class="radio mb10">
+	<div class="cc radioBg">
+		<div class="view-hover" invokename="左侧@广播台" altname="左侧@广播台" channelid="bbsradio">				<dl class="radioDl">
+					<dt>
+EOT;
+$pwresult = pwTplGetData('左侧@广播台','广播图片1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<div class="div"><a href="$val[url]"><img src="$val[image]" alt="$val[title]" title="$val[title]" width="120" height="90"  /></a><p><a href="$val[url]">$val[title]</a></p></div>
+EOT;
+}print <<<EOT
+</dt>
+					<dd>
+						<ul class="radioUl">
+EOT;
+$pwresult = pwTplGetData('左侧@广播台','广播帖子列表1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+					</dd>
+				</dl>
+			
+</div>
+	</div>
+</div>
+<!--
+EOT;
+?>-->

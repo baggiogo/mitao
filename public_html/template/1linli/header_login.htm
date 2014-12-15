@@ -1,0 +1,383 @@
+<!--<?php
+if (empty($winduid)) {print <<<EOT
+-->
+<!--
+EOT;
+if($groupid=='guest'){
+$arr_logintypename = array('用户名','UID','电子邮箱');
+$loginJumpUrl = "http://{$pwServer['HTTP_HOST']}{$REQUEST_URI}";
+if (basename($REQUEST_URI,".php") == 'login') {
+	$loginJumpUrl = "{$db_bbsurl}/index.php";
+}
+print <<<EOT
+-->
+   <div id="top-b">
+<form action="$db_bbsurl/login.php" name="login_FORM" method="post" onsubmit="return headerAjaxLogin.login(document.login_FORM);">
+<!--
+EOT;
+if (count($_LoginInfo['logintype'])>=1) {
+$value = $_LoginInfo['logintype'][0];
+empty($value) && $value = 0;
+print <<<EOT
+-->
+  <!--
+EOT;
+} else {
+print <<<EOT
+-->
+  <input type="hidden" name="lgt" id="nav_lgt" value="0">
+  <!--
+EOT;
+}
+print <<<EOT
+-->
+   </form>
+   </div>
+   
+   <!--
+EOT;
+/* platform weibo app --start */
+L::loadClass('WeiboLoginViewHelper', 'sns/weibotoplatform/viewhelper', false);
+$weiboLoginService = L::loadClass('WeiboLoginService', 'sns/weibotoplatform/service');
+$loginWays = $weiboLoginService->getLoginWays();
+if ($loginWays) {
+	$firstWay = array_shift($loginWays);
+	$windowOpenScript = WeiboLoginViewHelper_WindowOpenScript($firstWay['type']);
+print <<<EOT
+-->
+<link rel="stylesheet" href="u/images/expand/weibologin.css" />
+<style>
+
+.loginWays {height:25px; padding:3px 8px 0 0; margin:0 }
+</style>
+<div class="loginWays fl" style="font-size: 12px;">
+	<span id="weibo_login" class="firstWay cp">
+		<a href="javascript:;" onclick="$windowOpenScript"><img src="{$firstWay['loginLogo']}" alt="使用{$firstWay['accountTitle']}登录">{$firstWay['accountTitle']}登录</a>
+
+	</span>
+<!--
+EOT;
+	if ($loginWays) {
+print <<<EOT
+-->
+<div id="menu_weibo_login" class="pw_menu" style="display: none;">
+    <ul class="menuList" style="width:118px;">
+<!--
+EOT;
+		foreach ($loginWays as $restWay) {
+			$windowOpenScript = WeiboLoginViewHelper_WindowOpenScript($restWay['type']);
+print <<<EOT
+-->
+		<li><a title="使用{$restWay['accountTitle']}登录" href="javascript:;" onclick="$windowOpenScript"><img src="{$restWay['loginLogo']}" />{$restWay['accountTitle']}登录</a></li>
+<!--
+EOT;
+		}
+print <<<EOT
+-->
+    </ul>
+</div>
+<!--
+EOT;
+		$GLOBALS['db_menuinit'] .= ",'weibo_login' : 'menu_weibo_login'";
+	}
+print <<<EOT
+-->
+</div>
+<!--
+EOT;
+}
+/* platform weibo app --end */
+
+print <<<EOT
+-->
+   
+   <p class="customer_mes fr"><a href="login.php" class="log_in" target="_blank">登录</a><a href="register.php" class="reg_in" target="_blank">注册</a>
+  
+   </p>
+
+<script type="text/javascript">
+var default_login_type = '$value';
+var default_input_value = '输入' + '$arr_logintypename[$value]';
+
+function showLoginType(){
+	var login_type = getObj('login_type_list');
+	login_type.style.display = login_type.style.display === 'none' ? '' : 'none';
+	if (IsElement('nav_logintab')){
+		getObj('nav_logintab').style.display = 'none';
+	}
+}
+function navCheckinput(obj){
+	if (obj.className.indexOf('gray')!=-1) {
+		obj.value = '';
+		obj.className = obj.className.replace('gray', 'black');
+	} else if (obj.value=='') {
+		obj.value = obj.defaultValue = default_input_value;
+		if (obj.className.indexOf('black') == -1) {
+			obj.className += ' gray';
+		} else {
+			obj.className = obj.className.replace('black', 'gray');
+		}
+	}
+}
+function changeDefaultInputValue(text){
+	getObj('nav_pwuser').value = text;
+	getObj('nav_lgt').value = default_login_type;
+}
+
+function selectLoginType(type,text){
+
+	var nav_pwuser = getObj('nav_pwuser');
+	nav_pwuser.value = '输入'+text;
+	if (nav_pwuser.className.indexOf('black') != -1) {
+		nav_pwuser.className = nav_pwuser.className.replace('black', 'gray');
+	}
+	getObj('nav_lgt').value = type;
+	getObj('login_type_list').style.display = 'none';
+}
+changeDefaultInputValue(default_input_value);
+
+var headerAjaxLogin = {
+	'username' : '',
+	'pwd' : '',
+	'login' : function(obj) {
+		var _this = this;
+		var username = obj.pwuser.value;
+		if ((!username || username.indexOf('输入')===0) && !obj.pwpwd.value) {
+			document.location.href="login.php";
+			return false;
+		}
+		obj.head_login.disabled = true;
+		_this.username = obj.pwuser.value;
+		_this.pwd = obj.pwpwd.value;
+		_this.submitBasicInfo(obj);
+		return false;
+	},
+	
+	'submitBasicInfo' : function(obj) {
+		var url = 'login.php';
+		ajax.send(url, obj, function() {
+			var rText = ajax.request.responseText.split('\t');
+			if (rText[0] == 'error') {
+				showDlg('error', rText[1], 2);
+				obj.head_login.disabled = false;
+			} else if (rText[0] == 'success') {
+				document.location.href = rText[1];
+			} else {
+				ajax.get('', '1','',1);
+				//临时遮罩
+				var dd=document.documentElement;
+				var cw=dd.clientWidth;
+				var sh=dd.scrollHeight;
+				var div=document.createElement("div");
+				div.setAttribute("id","headerTmpMask");
+				div.style.position="absolute";
+				div.style.width=cw+"px";
+				div.style.height=sh+"px";
+				div.style.left=0;
+				div.style.top=0;
+				div.style.backgroundColor="#333";
+				div.style.opacity="0.5";
+				div.style.filter="alpha(opacity=50)";
+				div.style.zIndex=1000;
+				document.body.appendChild(div);
+				//end
+			}
+		});
+		return false;
+	},
+	
+	'submitCheckInfo' : function(obj) {
+		var _this = this;
+		var url = 'login.php';
+		var ifChangeGdcode = true;
+		obj.pwuser.value = _this.username;
+		obj.pwpwd.value = _this.pwd;
+		ajax.send(url, obj, function() {
+			var rText = ajax.request.responseText.split('\t');
+			if (rText[0] == 'error') {
+				if (rText[1] == 'gdcodeerror') {
+					getObj('headrajaxlogintip').innerHTML = '验证码不正确或已过期';
+				} else if (rText[1] == 'ckquestionerror') {
+					getObj('headrajaxlogintip').innerHTML = '请输入正确的验证问题答案';
+				} else if (rText[1] == 'safequestionerror') {
+					getObj('headrajaxlogintip').innerHTML = '安全问题错误,您还可以尝试 ' + rText[2] + ' 次';
+				}
+				getObj('headrajaxlogintip').style.display = '';
+			} else if (rText[0] == 'success') {
+				location.href = rText[1];
+				ifChangeGdcode = false;
+			} else {
+				getObj('headrajaxlogintip').innerHTML = rText[0];
+				getObj('headrajaxlogintip').style.display = '';
+			}
+			if (ifChangeGdcode && getObj('changeGdCode')) getObj('changeGdCode').onclick();
+		});
+		return false;
+	},
+	
+	'close' : function(obj) {
+		document.login_FORM.head_login.disabled = false;
+		closep();
+		//清除遮罩
+		if(getObj("headerTmpMask")){
+			var mask=getObj("headerTmpMask");
+			mask.parentNode.removeChild(mask);
+		}
+		//end
+	}
+};
+</script>
+<!--
+EOT;
+$bubble=GetCookie('bubble')?GetCookie('bubble'):array();
+if ($bubble){
+$bubble=stripslashes($bubble);
+$bubble=pwJsonEncode(unserialize($bubble));
+print <<<EOT
+-->
+<script>
+var userBubbleInfo =$bubble
+</script>
+<!--
+EOT;
+}
+}} else {
+$db_menuinit .= ",'td_userinfomore' : 'menu_userinfomore','td_profile' : 'menu_profile'";
+if ($winddb['bubble']) {
+$userBubbleInfo = pwJsonEncode(unserialize($winddb['bubble']));
+print <<<EOT
+-->
+<script>
+var userBubbleInfo = $userBubbleInfo;
+</script>
+<!--
+EOT;
+}
+if (getstatus($winddb['userstatus'],12)) {print <<<EOT
+--><script src="js/userbinding.js"></script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<dl class="user_info">        
+<dd><p class="fl">            
+<span class="color_333" style="font-weight:bold;"><a style="color:#333333; font-weight:bold;  margin-right:10px;" href="u.php">$windid</a></span><a href="$loginouturl">[退出]</a></p> 
+<script type="text/javascript">
+var td_userinfomore = {
+	pz : 21,
+	open : function() {
+		getObj('td_userinfomore').className = 'current';
+		if (typeof userBinding == 'object') {
+			userBinding.append();
+		}
+	},
+	close : function () {
+		getObj('td_userinfomore').className = '';
+	}
+}
+</script>
+<a title="短消息" href="message.php" id="my_mes" class="t_mes"><span class="org">[新消息{$tmpMsgNums}]</span></a><a id="td_profile" href="profile.php?action=modify">[设置]</a><!--
+EOT;
+if(CkInArray($windid,$manager) || $SYSTEM['allowadmincp']){
+print <<<EOT
+--><a href="$db_adminfile" target="_blank">[系统设置]</a>
+<!--
+EOT;
+}
+print <<<EOT
+--></dd><dt><a href="u.php"><img id="iconimg" class="img_28" src="$_LoginInfo[faceurl]" alt="$windid"></a></dt>        </dl>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if (getstatus($winddb['userstatus'],12)) {print <<<EOT
+--><base id="headbase" href="$db_bbsurl/" /><script src="js/userbinding.js"></script>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+<!--
+EOT;
+if ($winduid){print<<<EOT
+-->
+<div id="menu_userinfomore" class="cc pw_menu" style="display:none;">
+	<h6 style="left:-1px;right:auto;"><a href="u.php" class="b link_down"><span>$windid</span></a></h6>
+	<div>
+		<ul class="menu-half cc" style="width:26em;">
+<!--
+EOT;
+if ($gp_gptype == 'member') {print <<<EOT
+-->
+		<li>等级: $gp_grouptitle</li>
+<!--
+EOT;
+} else {print <<<EOT
+-->
+		<li>身份: $gp_grouptitle</li>
+<!--
+EOT;
+}if ($_G['allowhide']) {print <<<EOT
+-->
+		<li>状态:
+<span style="cursor:pointer;" onClick="ajax.send('pw_ajax.php?action=changestate','',changeState)" id="online_state"><!--
+EOT;
+if (GetCookie('hideid') == 1) {print <<<EOT
+--><img src="$imgpath/stealth.png" align="absmiddle" alt="隐身" />隐身<!--
+EOT;
+} else {print <<<EOT
+--><img src="$imgpath/online.png" align="absmiddle" alt="在线" />在线<!--
+EOT;
+}print <<<EOT
+--></span>
+<script>
+function changeState() {
+	var msg = ajax.request.responseText;
+	if (msg == 1){
+		getObj('online_state').innerHTML = '<img src="$imgpath/stealth.png" align="absmiddle" alt="隐身" />隐身';
+	}else{
+		getObj('online_state').innerHTML = '<img src="$imgpath/online.png" align="absmiddle" alt="在线" />在线';
+	}
+}
+</script>
+			</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			<li>帖子: $winddb[postnum]</li>
+			<li>今日: $winddb[todaypost]</li>
+			<li>$db_rvrcname: $userrvrc $db_rvrcunit</li>
+			<li>$db_moneyname: $winddb[money] $db_moneyunit</li>
+			<li>$db_creditname: $winddb[credit] $db_creditunit</li>
+			<li>最后登录: <span class="f10">{$_LoginInfo['lastlodate']}</span></li>
+            <li style="width:90%">登录IP: <span class="f10">{$onlineip}</span></li>
+        </ul>
+		<div class="userbindingMenu"></div>
+	</div>
+</div>
+<div id="menu_profile" class="pw_menu" style="display:none;">
+	<h6><a href="profile.php?action=modify" class="link_down"><span>设置</span></a></h6>
+    <ul style="width:50px;" class="menuList">
+        <li><a href="profile.php?action=modify" target="_blank">帐号</a></li>
+<!--
+EOT;
+if ($db_authstate) {print <<<EOT
+-->
+		<li><a href="profile.php?action=auth" target="_blank">认证</a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+        <li><a href="profile.php?action=privacy" target="_blank">隐私</a></li>
+        <li><a href="userpay.php" target="_blank">积分</a></li>
+        <li><a href="profile.php?action=permission" target="_blank">权限</a></li>
+    </ul>
+</div>
+<!--
+EOT;
+}?>

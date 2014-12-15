@@ -1,0 +1,303 @@
+<!--<?php
+print <<<EOT
+-->
+<!--#require modeEot('header');#-->
+
+<script type="text/javascript" src="mode/area/js/ddsliderplayer.js"></script>	
+<div id="nav_sub" class="mb10">
+  <dl>
+<pw id="副导航@test" />
+  </dl>
+</div>
+
+
+<!--#list($htmlAdvert,$arrayAdvert) = pwAdvert('Site.NavBanner1',$fid);#-->
+<!--#if($htmlAdvert){#-->
+	<div class="ads">$htmlAdvert</div>
+<!--#}#-->
+<!--#list($htmlAdvert,$arrayAdvert) = pwAdvert('Site.NavBanner2',$fid);#-->
+<!--#if($htmlAdvert){#-->
+	<div class="ads">$htmlAdvert</div>
+<!--#}#-->
+
+
+
+<div id="box1">
+<div class="box1left fl">
+<div class="h_tit"><pw id="今日热点title@test" /></div>
+<div class="fl"><div class="pwSlideWrap"><pw id="图片播放器@test" /></div>
+<div class="lifehelp">
+<h1><span class="fr" id="zstab"><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a></span><strong>便民小工具</strong></h1>
+        <div class="helpUL">
+        	<div id="contain">
+                <ul class="switchItem cc" style="display:none"><pw id="便民1@test" /></ul>
+                <ul class="switchItem cc" style="display:none"><pw id="便民2@test" /></ul>
+                <ul class="switchItem cc" style="display:none"><pw id="便民3@test" /></ul>
+        </div>
+        <script>ddSliderPlayers('contain','zstab',0,'on');</script>
+      </div>
+      </div>
+</div>
+<div class="fr hotlist">
+<pw id="焦点新闻@test" />
+</div>
+</div>
+<div class="box1right fr">
+<div id="notice">
+      <pw id="合作电话@test" />
+      <div id="ScrollMe">
+	  <pw id="滚动公告@test" />
+	  </div>
+<script type="text/javascript">
+new Marquee(["ScrollMe","rolls"],0,1,245,18,20,4000,3000,18)
+</script>
+<div id="weibo"><pw id="微博@test" /></div>
+</div>
+
+<!--
+EOT;
+if(!$windid){
+print <<<EOT
+-->			
+<!--登录前-->
+<div class="login-box" id="currentLoginUserInfo"><div class="logins" style="padding-left:10px">
+                <form action="login.php" name="login_FORM" method="post">
+<input type="hidden" name="jumpurl" value="http://{$pwServer['HTTP_HOST']}{$REQUEST_URI}" />
+<input type="hidden" name="step" value="2" />
+<ul>
+<li class="login-txt"><input class="txt txt-large" name="pwuser" id="nav_pwuser" placeholder="帐号"  maxlength="20" /></li>	
+<li class="login-txt"><input class="txt txt-large focus" type="password" name="pwpwd" 
+ onfocus="if(IsElement('nav_logintab')) getObj('nav_logintab').style.display='';this.value='';var o_nav_logintab = IsElement('nav_logintab') ? getObj('nav_logintab') : ''; PW_popEvent(o_nav_logintab);" placeholder="密码"/></li>
+ 	
+<li class="login-keep" style="width:230px"><a href="sendpwd.php" style="color:#999">忘记密码</a><label><input type="checkbox" value="315360000" name="cookietime">下次自动登录</label></li>	
+
+<li class="login-btn" style=" height:29px; width:230px;"> 
+<input type="submit" class="register-btn btn" style="border:0;float:left;cursor: pointer; width:90px; height:29px;" value="登录">
+
+<a id="regist" class="register-btn btn1 btn" name="register-btn" href="register.php#breadCrumb" style="color:#FFF">立即注册</a>
+</li><li class="login-others cc">或者<a class="qq" href="javascript:;" onclick="OutSiteLogin.showQQLogin('OWS_QQ_entry_homepage','hangzhou');">QQ登录</a><a class="wb" href="javascript:;" onclick="OutSiteLogin.showSinaLogin('OWS_Sina_entry_homepage','hangzhou');">微博登录</a></li>
+</ul>
+</form>
+                </div></div>
+<!--
+EOT;
+}else{ print <<<EOT
+-->
+<!--登录后-->
+
+<div class="login-box" id="currentLoginUserInfo"><div class="logined">
+<div class="cc link6 logined-hd">
+<em class="uname">
+<a href="u.php"><img src="$_LoginInfo[faceurl]" alt="$windid" class="avatar"></a>
+<a href="u.php">$windid</a></em><a class="logout" href="$loginouturl">[退出]</a>
+<p class="uadrs">等级: $gp_grouptitle
+<!--
+EOT;
+if (CkInArray($windid, $manager) || $SYSTEM['allowadmincp']) {print <<<EOT
+-->
+<a href="$db_adminfile" target="_blank">系统设置</a></ul>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+</p>
+<p class="uopt" style="_width:185px;"><a href="message.php?type=sms" class="msg"><span>私信</span><em><i>{$winddb['newpm']}</i></em></a><a href="message.php?type=notice" class="tip"><span>提醒</span><em><i>{$winddb['newnotice']}</i></em></a><a href="apps.php?q=weibo&do=refer" class="me"><span>@我</span><em><i>{$winddb['newreferto']}</i></em></a>
+</p>
+</div>
+<div class="logined-bd">
+<div class="udata cc">
+
+<a href="#"><p>今日</p><div>$winddb[todaypost]</div></a>
+
+<a href="apps.php?q=article"><p>帖子</p><div>$winddb[postnum]</div></a>
+
+<a href="userpay.php"><p>$db_moneyname</p><div>$winddb[money]</div></a>
+
+<a href="userpay.php"><p>{$db_rvrcname}</p><div>$userrvrc</div></a>
+
+<a href="u.php?a=friend&type=attentioned"><p>粉丝</p><div>{$winddb['fans']}</div></a>
+</div>
+<p class="tc mt15"><a class="btn uhome" href="u.php">立即进入我的空间</a></p>
+
+</div></div></div>
+<!--
+EOT;
+}
+print <<<EOT
+-->	
+
+<div class="hdkt">
+<div class="h_tit" style="margin-bottom:0"><pw id="活动看台title@test" /></div>
+<ul>
+<pw id="活动看台list@test" />
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="ads"><pw id="通栏广告1@test" /></div>
+
+<div id="box2">
+<div class="h_tit" style="margin:13px 18px 0"><pw id="精彩图片title@test" /></div>
+
+<ul class="colorful cc">
+<pw id="精彩图片@test" />
+</ul>
+
+</div>
+
+<div class="ads"><pw id="通栏广告2@test" /></div>
+
+<div id="box3">
+<div class="h_tit" style="margin:13px 18px 0"><pw id="时尚生活title@test" /></div>
+
+<div class="box3info">
+    <div class="infoImg">
+<pw id="精彩图文@test" />
+    </div>
+    <div class="favoriteSelect">
+<pw id="贴贴精选上@test" />
+<pw id="贴贴精选下@test" />
+    </div>
+
+    <div class="hotSort">
+      <h2><pw id="热帖排行title@test" /></h2>
+      <div class="sort">
+        <ul>
+<pw id="热帖排行list@test" />
+
+
+        </ul>
+        <div class="c"></div>
+        <pw id="热帖排行ad@test" />
+      </div>
+    </div>
+      <div class="c"></div>
+      <div class="MemberShow">
+        <b class="rc-lt"></b>
+        <b class="rc-rt"></b>
+        <a class="rc-nl rr" id="go_left"></a>
+        <a class="rc-nr rr" id="go_right"></a>
+        <div id="scroll" class="scroll">
+	        <ul id="scrollul">
+<pw id="会员风采@test" />
+	          	        </ul>
+        </div>
+<script type="text/javascript">
+new Marquee(
+{
+	MSClass	  : ["scroll","scrollul"],
+	Direction : 2,
+	PrevBtnID : "go_left",
+	NextBtnID : "go_right",
+	Step	  : 0.3,
+	Width	  : 828,
+	Height	  : 60,
+	Timer	  : 20,
+	DelayTime : 3000,
+	WaitTime  : 5000,
+	ScrollStep: 275,
+	SwitchType: 0,
+	AutoStart : true
+});
+</script>
+     </div>
+</div>
+</div>
+
+
+<div class="ads"><pw id="通栏广告3@test" /></div>
+
+<div id="box4">
+<div class="h_tit" style="margin:13px 18px 0"><pw id="论坛版块title@test" /></div>
+
+<div class="box4info cc">
+<div class="fl forumlist">
+			<ul class="club-list">
+<!--
+EOT;
+$query = $db->query("SELECT a.fid,a.name,a.logo,a.descrip,b.tpost,b.topic FROM pw_forums a,pw_forumdata b where a.fid=b.fid and a.type='forum' order by a.vieworder asc LIMIT 16");
+while ($forums = $db->fetch_array($query)) {
+$f_name = $forums['name'];
+$f_posts = $forums['tpost'];
+$f_logo  = $forums['logo'];
+$f_descrip = $forums['descrip'];
+$f_url = 'thread.php?fid='.$forums['fid'];
+print<<<EOT
+-->
+<li class="club{$forums[fid]} club">
+<div class="board">
+<h2><a href="{$f_url}" target="_blank" title="{$f_descrip}">{$f_name}</a><span class="todayPost">(24时新贴：{$f_posts})</span></h2>
+<div class="board-logo"><!--
+EOT;
+if($forums['logo']){print <<<EOT
+-->
+          			<a href="thread.php?fid=$forums[fid]" target="_blank"><img src="attachment/$forums[logo]" /></a>
+<!--
+EOT;
+}else{print <<<EOT
+-->
+          			<a href="thread.php?fid=$forums[fid]" target="_blank"><img src="$channelImagePath/nologo.jpg" /></a>
+<!--
+EOT;
+}print <<<EOT
+--></div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>{$f_descrip}</p>
+</div>
+</div>
+</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+</ul>
+</div>
+
+<div class="fr" style="padding-top:5px">
+
+<div class="hotSort">
+    
+    
+      <h2 id="sort_tab"><span class="switchNavItem">今日</span><span class="switchNavItem">本周</span><span class="switchNavItem">本月</span></h2>
+      <div class="sort" id="sort_list">
+        <ol class="switchItem" style="display:none"><pw id="今日帖子排行@test" /></ol>
+        <ol class="switchItem" style="display:none"><pw id="本周帖子排行@test" /></ol>
+        <ol class="switchItem" style="display:none"><pw id="本月帖子排行@test" /></ol>
+        </div>
+        <script>ddSliderPlayers('sort_list','sort_tab',0,'on');</script>
+              <h2 style="margin-top:10px"><pw id="会员排行title@test" /></h2>
+      <div class="sort">
+		<dl>
+<pw id="会员排行@test" />
+        </dl>
+      </div>
+<div class="ad2" style="padding-top:12px"><pw id="论坛版块ad@test" /></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="ads"><pw id="通栏广告4@test" /></div>
+
+<div id="box5">
+<div class="h_tit" style="margin:13px 18px 0"><pw id="友情链接title@test" /></div>
+<div class="box5info"><pw id="友情链接list@test" /></div>
+</div>
+
+<div class="c"></div>
+
+
+
+
+
+
+<!--#require modeEot('footer');#-->
+<!--
+EOT;
+?>-->

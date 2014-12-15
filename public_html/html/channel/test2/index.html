@@ -1,0 +1,807 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>首页 - 深州桃乡人网-深州房产 深州招聘 生活信息 - Powered by phpwind</title>
+<meta name="generator" content="phpwind 8.7" />
+<meta name="description" content="深州桃乡人网-深州房产 深州招聘 生活信息" />
+<meta name="keywords" content="首页 - 深州桃乡人网-深州房产 深州招聘 生活信息" />
+<base id="headbase" href="http://www.taoxiangren.com/" />
+<link rel="stylesheet" href="images/pw_core.css?20111111" />
+<link rel="stylesheet" href="html/channel/test2/images/head.css?20111111" />
+<link rel="stylesheet" href="html/channel/test2/images/style.css?20111111" /><script type="text/javascript" src="html/channel/test2/images/MSClass.js"></script>
+<script type="text/javascript" src="js/core/core.js"></script>
+<script type="text/javascript" src="js/pw_ajax.js"></script>
+<script>
+var pw_baseurl = "http://www.taoxiangren.com";
+var imgpath = 'images';
+//var verifyhash = '4a800f05';
+var modeimg = 'mode/area/images';
+var modeBase = 'mode.php?m=area';
+var winduid = '';
+var windid	= '';
+var groupid	= 'guest';
+var channelid	= '9';
+</script>
+<!--[if IE 9 ]>
+<meta name="msapplication-task" content="name=网站首页; action-uri=http://www.taoxiangren.com; icon-uri=favicon.ico" />
+<meta name="msapplication-task" content="name=个人中心; action-uri=u.php; icon-uri=images/ico/home.ico" />
+<meta name="msapplication-task" content="name=我的帖子; action-uri=apps.php?q=article; icon-uri=images/ico/post.ico" />
+<meta name="msapplication-task" content="name=消息中心; action-uri=message.php; icon-uri=images/ico/mail.ico" />
+<meta name="msapplication-task" content="name=我的设置; action-uri=profile.php; icon-uri=images/ico/edit.ico" />
+<![endif]-->
+</head>
+<body id="body">
+<script type="text/javascript">
+function $(id){return document.getElementById(id)};
+</script>
+
+<div id="top">
+	<div class="top cc">
+		<script type="text/javascript" src="mode.php?m=area&q=header&ifactive=&alias=test2&t=1417776893"></script>
+		<a href="http://www.taoxiangren.com/" title="" id="logo"></a>
+    	<ul>
+
+		<li class="current" onmouseover="ctrlSubMenu('nav_key_sub_2','nav_key_sub_2');"><a id="nav_key_up_2" href="index.php?m=area" title="" >首页</a></li>
+
+		<li><a id="nav_key_up_1" href="/fenlei" title="" target="_blank"><font color="#FFFF00"><b>分类信息</b></font></a></li>
+
+		<li><a id="nav_key_up_6" href="html/channel/delicious" title="" target="_blank"><font color="#FFFFFF"><b>深州美食</b></font></a></li>
+
+		<li><a id="nav_key_up_8" href="html/channel/decoration" title="" ><font color="#FFA500"><b>深州装修</b></font></a></li>
+
+        </ul>
+        <div class="searchA fl cc">
+        	<form action="searcher.php" method="post" onSubmit="return searchCheck(this);">
+	        	<input type="hidden" value="4a800f05" name="verify">
+	            <input value="2" type="hidden" name="step">
+	            <input value="thread" type="hidden" id="search_type" name="type">
+	            <div class="ip"><input id="search_input" type="text" value="搜索其实很简单！" class="gray" name="keyword" onFocus="searchFocus(this)" onBlur="searchBlur(this)" /></div>
+	            <div class="s_select" onMouseOut="this.firstChild.style.display='none';" onMouseOver="this.firstChild.style.display='block';"><ul onClick="getSearchType(event)"><li type="thread" style="display:none">帖子</li><li type="user" >用户</li><li type="forum" >版块</li></ul><h6>帖子</h6></div>
+	            <button type="submit" class="cp fl"> </button>
+            </form>
+            
+        </div>
+
+
+    </div>
+
+<div id="navB" class="pr">
+
+
+		</div>
+</div>
+
+
+<script>
+function updateCache(alias){
+	var url = 'mode.php?m=area&q=static&alias='+alias;
+	ajax.send(url,'',ajax.get);
+}
+</script>
+<script>
+var timeoutSpecifyId = {};
+
+function tmpClose(elementId) {
+	timeoutSpecifyId[elementId] = setTimeout(function() {
+		getObj(elementId).style.display = 'none';
+	}, 100);
+}
+function tmpHideAllCross(currentSubMenuId) {
+	var elements = getElementsByClassName('navB', getObj('navB'));
+	for (i=0; i<elements.length; i++) {
+		if (elements[i].id != '' && elements[i].id != currentSubMenuId) elements[i].style.display = 'none';
+	}
+}
+
+function ctrlSubMenu(parentId, subMenuId) {
+	clearTimeout(timeoutSpecifyId[subMenuId]);
+
+	tmpHideAllCross(subMenuId);
+	getObj(subMenuId).style.display = '';
+
+	getObj(parentId).onmouseout = function() {
+		tmpClose(subMenuId);
+		getObj(parentId).onmouseout = '';
+	};
+	getObj(subMenuId).onmouseout = function() {
+		tmpClose(subMenuId);
+	};
+	getObj(subMenuId).onmouseover = function() {
+		clearTimeout(timeoutSpecifyId[subMenuId]);
+		getObj(subMenuId).style.display = '';
+	};
+}
+</script>
+	
+<script>
+function searchCheck(o) {
+	getVerify(o);
+	return searchInput();
+}
+
+function getVerify(o) {
+	o.verify.value = verifyhash;
+	return true;
+}
+</script>
+<div class="c"></div>
+<div id="main">
+<script type="text/javascript" src="mode/area/js/ddsliderplayer.js"></script>	
+<div id="nav_sub" class="mb10">
+  <dl>
+<div class="view-hover" invokename="副导航@test2" altname="副导航@test2" channelid="test2">    <dt id="tag_01">热门</dt>
+    <dd><a href="http://taoxiangren.com/fenlei/list.php?fid=1&amp;city_id=340" title="" target="_blank">买房租房</a><a href="http://taoxiangren.com/thread.php?fid=12" title="" target="_blank">深州美食</a><a href="http://taoxiangren.com/thread.php?fid=18" title="" target="_blank">家居装修</a><a href="http://taoxiangren.com/fenlei/list.php?fid=3&amp;city_id=340" title="" target="_blank">找工作 </a><a href="http://taoxiangren.com/fenlei/list.php?fid=3&amp;city_id=340" title="" target="_blank">人才招聘</a><a href="http://taoxiangren.com/fenlei" title="" target="_blank">生活服务</a></dd>
+    <dt id="tag_02">生活</dt>
+    <dd style="width:285px;"><a href="http://taoxiangren.com/thread.php?fid=17" title="" target="_blank">房产楼市</a><a href="http://taoxiangren.com/thread.php?fid=25" title="" target="_blank">小区论坛</a><a href="http://taoxiangren.com/thread.php?fid=20" title="" target="_blank">妈咪宝贝</a><a href="http://taoxiangren.com/thread.php?fid=19" title="" target="_blank">喜庆婚嫁</a><a href="http://taoxiangren.com/thread.php?fid=17" target="_blank">楼盘信息</a><a href="http://taoxiangren.com/thread.php?fid=19" target="_blank">我要结婚</a><a href="http://taoxiangren.com/thread.php?fid=20" title="" target="_blank">育儿经验</a><a href="http://taoxiangren.com/thread.php?fid=12" title="" target="_blank">吃吃喝喝</a></dd>
+    <dt id="tag_03">服务</dt>
+    <dd style="width:355px;"><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">网上卖场</a><a href="http://taoxiangren.com/thread.php?fid=22" title="" target="_blank">我要租房</a><a href="http://taoxiangren.com/thread.php?fid=22" title="" target="_blank">二手房产</a><a href="http://taoxiangren.com/thread.php?fid=23" title="" target="_blank">打折信息</a><a href="http://taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a><a href="http://taoxiangren.com/thread.php?fid=13" target="_blank">我要征婚</a><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">我要出售</a><a href="http://taoxiangren.com/thread.php?fid=3" title="" target="_blank">百姓声音</a><a href="http://taoxiangren.com/thread.php?fid=15" title="" target="_blank">我要买车</a><a href="http://taoxiangren.com/thread.php?fid=21" title="" target="_blank">购物交流</a></dd>
+</div>
+  </dl>
+</div><div id="box1">
+<div class="box1left fl">
+<div class="h_tit"><div class="view-hover" invokename="今日热点title@test2" altname="今日热点title@test2" channelid="test2"><h2><a href="#" target="_blank">今日热点</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=3" target="_blank" title="版块链接">百姓话题</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">深州小吃</a>|<a href="http://taoxiangren.com/thread.php?fid=14" target="_blank" title="版块链接">我拍我秀</a>|<a href="http://taoxiangren.com/thread.php?fid=17" target="_blank" title="版块链接">房产楼市</a>|<a href="http://taoxiangren.com/thread.php?fid=16" target="_blank" title="版块链接">闲聊广场</a></span>
+</div></div>
+<div class="fl"><div class="pwSlideWrap"><div class="view-hover" invokename="图片播放器@test2" altname="图片播放器@test2" channelid="test2"><div id="pwSlidePlayer" class="pwSlide"><ul class="switch" id="PP1_A"><li class="switchItem" style="display:"><a href="read.php?tid=2998" target="_blank"><img src="http://taoxiangren.com/attachment/mini/03cb0cb562.jpg" width="286" height="236" /></a>
+                    <h3><a href="read.php?tid=2998" target="_blank">形意拳研讨会近日在河北深州举办</a></h3>
+                    <p>       日前，2014第三届国家级非物质文化遗产形意拳交流研讨高峰论坛在河北省深州市<a href="read.php?tid=2998" target="_blank">[详细]</a></p></li><li class="switchItem" style="display:"><a href="read.php?tid=2996" target="_blank"><img src="http://taoxiangren.com/attachment/mini/c0d5657e09.jpg" width="286" height="236" /></a>
+                    <h3><a href="read.php?tid=2996" target="_blank">深州西午村的枪决现场</a></h3>
+                    <p>今天上午开车路过北午村公路看到的，把路都截住了，一问才知道是崩人。。。
+莫犯法，<a href="read.php?tid=2996" target="_blank">[详细]</a></p></li><li class="switchItem" style="display:"><a href="read.php?tid=2987" target="_blank"><img src="http://taoxiangren.com/attachment/mini/62008b5c27.jpg" width="286" height="236" /></a>
+                    <h3><a href="read.php?tid=2987" target="_blank">喜讯-深州倾力打造京津石休闲度假</a></h3>
+                    <p>     新浪网9月17日的最新消息，深州将打造京津石休闲度假后花园！！！
+     近年来，<a href="read.php?tid=2987" target="_blank">[详细]</a></p></li><li class="switchItem" style="display:"><a href="read.php?tid=2986" target="_blank"><img src="attachment/Mon_1409/3_3_42492c0b8459aca.jpg" width="286" height="236" /></a>
+                    <h3><a href="read.php?tid=2986" target="_blank">深州寻人-大冯营村贾会英走失</a></h3>
+                    <p>      贾会英女46岁语言有障碍精神有问题，于9月13日晚在河北省深州市大冯营村走失，<a href="read.php?tid=2986" target="_blank">[详细]</a></p></li></ul>
+	<div class="pwSlide-bg"></div>
+	<ul class="SwitchNav" id="PP1_B"><li class="switchNavItem"><a href="#" onclick="return false;">1</a></li><li class="switchNavItem"><a href="#" onclick="return false;">2</a></li><li class="switchNavItem"><a href="#" onclick="return false;">3</a></li><li class="switchNavItem"><a href="#" onclick="return false;">4</a></li></ul>
+</div>
+		<script>onReady(function(){ddSliderPlayers('PP1_A','PP1_B',4,'current');})</script>
+        
+        
+</div></div>
+<div class="lifehelp">
+<h1><span class="fr" id="zstab"><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a></span><strong>便民小工具</strong></h1>
+        <div class="helpUL">
+        	<div id="contain">
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民1@test2" altname="便民1@test2" channelid="test2"><li><a target="_blank" href="http://www.weather.com.cn" title="天气查询"><img src="html/channel/test2/images/icon/tq.gif"><p>天气查询</p></a></li>
+<li><a target="_blank" href="http://site.baidu.com/list/wannianli.htm" title="万年历"><img src="html/channel/test2/images/icon/wnl.gif"><p>万年历</p></a></li>
+<li><a target="_blank" href="http://www.ip138.com/" title="IP查询"><img src="html/channel/test2/images/icon/ip.gif"><p>IP查询</p></a></li>
+<li><a target="_blank" href="http://www.showji.com" title="归属地"><img src="html/channel/test2/images/icon/gsd.gif"><p>归属地</p></a></li>
+<li><a target="_blank" href="http://www.youbian.com/" title="邮编查询"><img src="html/channel/test2/images/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="http://www.kuaidi100.com" title="快递查询"><img src="html/channel/test2/images/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="http://video.baidu.com" title="电影查询"><img src="html/channel/test2/images/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="http://www.lecai.com" title="彩票查询"><img src="html/channel/test2/images/icon/cp.gif"><p>彩票查询</p></a></li>
+    
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民2@test2" altname="便民2@test2" channelid="test2"><li><a target="_blank" href="#" title="计算器"><img src="html/channel/test2/images/icon/jsq.gif"><p>计算器</p></a></li>
+<li><a target="_blank" href="#" title="购房计算"><img src="html/channel/test2/images/icon/gf.gif"><p>购房计算</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="html/channel/test2/images/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="html/channel/test2/images/icon/jj.gif"><p>家居计算</p></a></li>
+<li><a target="_blank" href="#" title="公交换乘"><img src="html/channel/test2/images/icon/gj.gif"><p>公交换乘</p></a></li>
+<li><a target="_blank" href="#" title="火车时刻"><img src="html/channel/test2/images/icon/hc.gif"><p>火车时刻</p></a></li>
+<li><a target="_blank" href="#" title="长途汽车"><img src="html/channel/test2/images/icon/ct.gif"><p>长途汽车</p></a></li>
+<li><a target="_blank" href="#" title="交通违章"><img src="html/channel/test2/images/icon/wz.gif"><p>交通违章</p></a></li>
+
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民3@test2" altname="便民3@test2" channelid="test2"><li><a target="_blank" href="#" title="机票查询"><img src="html/channel/test2/images/icon/jp.gif"><p>机票查询</p></a></li>
+<li><a target="_blank" href="#" title="邮编查询"><img src="html/channel/test2/images/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="#" title="快递查询"><img src="html/channel/test2/images/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="#" title="电影查询"><img src="html/channel/test2/images/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="html/channel/test2/images/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="html/channel/test2/images/icon/jj.gif"><p>家居计算</p></a></li>
+    
+        
+        
+        
+        
+        
+</div></ul>
+        </div>
+        <script>ddSliderPlayers('contain','zstab',0,'on');</script>
+      </div>
+      </div>
+</div>
+<div class="fr hotlist">
+<div class="view-hover" invokename="焦点新闻@test2" altname="焦点新闻@test2" channelid="test2"><h2><a href="http://taoxiangren.com/read.php?tid=2987" target="_blank" title="<b><font color=#FF0000>喜讯-深州倾力打造京津石休闲度假后花园</font></b>"><b><font color=#FF0000>喜讯-深州倾力打造京津石休闲度假后花园</font></b></a></h2>
+<p>新浪网9月17日的最新消息，深州将打造京津石休闲度假后花园！！！
+&nbsp;&nbsp;&nbsp;&nbsp; 近年来，深州市紧紧...<a href="http://taoxiangren.com/read.php?tid=2987" target="_blank">[阅读全文]</a></p><ul><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">警钟长鸣</a>]</span><a href="http://taoxiangren.com/read.php?tid=2996" target="_blank" title="深州西午村的枪决现场">深州西午村的枪决现场</a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">百姓话题</a>]</span><a href="http://taoxiangren.com/read.php?tid=2989" target="_blank" title="<b><font color=#FF0000>桃乡人网官方群，速加，加就送网站VIP，满</font></b>"><b><font color=#FF0000>桃乡人网官方群，速加，加就送网站VIP，满</font></b></a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">热点话题</a>]</span><a href="http://taoxiangren.com/read.php?tid=2985" target="_blank" title="<font color=#FF0000>奇怪！恐怖！山西一个镇居然全是深县口音！</font>"><font color=#FF0000>奇怪！恐怖！山西一个镇居然全是深县口音！</font></a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">百姓话题</a>]</span><a href="http://taoxiangren.com/read.php?tid=2986" target="_blank" title="深州寻人-大冯营村贾会英走失">深州寻人-大冯营村贾会英走失</a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">百姓话题</a>]</span><a href="http://taoxiangren.com/read.php?tid=2983" target="_blank" title="深州交警查获一盗抢车辆 后备箱藏有猎枪">深州交警查获一盗抢车辆 后备箱藏有猎枪</a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">百姓话题</a>]</span><a href="http://taoxiangren.com/read.php?tid=2984" target="_blank" title="正能量！深州农民大哥脚趾被切， 省会百辆">正能量！深州农民大哥脚趾被切， 省会百辆</a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;12" target="_blank">深州美食</a>]</span><a href="http://taoxiangren.com/read.php?tid=2981" target="_blank" title="<b>深州乡情铁锅炖，喜迎中秋答谢新老顾客</b>"><b>深州乡情铁锅炖，喜迎中秋答谢新老顾客</b></a></li><li class="ad"><a href="" target="_blank"><img src="attachment/pushpic/20121018100702.jpg" title="" /></a></li><li><span>[<a href="http://taoxiangren.com/thread.php?fid&#61;3" target="_blank">体育赛事</a>]</span><a href="http://taoxiangren.com/read.php?tid=2988" target="_blank" title="<b><font color=#FF0000>2014-2015赛季深州篮球赛报名通知！</font></b>"><b><font color=#FF0000>2014-2015赛季深州篮球赛报名通知！</font></b></a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2974" target="_blank" title="泰山路饭庄招服务员和配菜师傅-深州招聘">泰山路饭庄招服务员和配菜师傅-深州招聘</a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2971" target="_blank" title="家佳乐超市面包房招聘-深州招聘">家佳乐超市面包房招聘-深州招聘</a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2968" target="_blank" title="车间招操作工-深州招聘">车间招操作工-深州招聘</a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2967" target="_blank" title="召计件工橡胶修边-深州招聘">召计件工橡胶修边-深州招聘</a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2966" target="_blank" title="深州市区油站招女加油员和油罐车司机-深州">深州市区油站招女加油员和油罐车司机-深州</a></li><li><span>[<a href="http://www.taoxiangren.com/thread.php?fid=24" target="_blank">人才招聘</a>]</span><a href="read.php?tid=2963" target="_blank" title="衡水市桃城区招发型师（深州招聘）">衡水市桃城区招发型师（深州招聘）</a></li></ul>
+        
+        
+        
+        
+        
+</div>
+</div>
+</div>
+<div class="box1right fr">
+<div id="notice">
+      <div class="view-hover" invokename="合作电话@test2" altname="合作电话@test2" channelid="test2"><p>官方qq群:64218497，欢迎加入</p>
+</div>
+      <div id="ScrollMe">
+	  <div class="view-hover" invokename="滚动公告@test2" altname="滚动公告@test2" channelid="test2"><ul class="rolls"><li><a href="read.php?tid=2998" target="_blank">形意拳研讨会近日在河北深</a></li><li><a href="read.php?tid=2996" target="_blank">深州西午村的枪决现场</a></li><li><a href="read.php?tid=2989" target="_blank">桃乡人网官方群，速加，加</a></li><li><a href="read.php?tid=2988" target="_blank">2014-2015赛季深州篮球赛报</a></li><li><a href="read.php?tid=2987" target="_blank">喜讯-深州倾力打造京津石休</a></li></ul>
+
+</div>
+	  </div>
+<script type="text/javascript">
+new Marquee(["ScrollMe","rolls"],0,1,245,18,20,4000,3000,18)
+</script>
+<div id="weibo"><div class="view-hover" invokename="微博@test2" altname="微博@test2" channelid="test2"><a href="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=136&height=24&uid=3046211572&style=2&btn=light&dpc=1#" target="_blank" title="收听新浪微博" rel="nofollow"><img src="html/channel/test2/images/tt_sina.png" alt="新浪微博" rel="nofollow" /></a><a href="#" target="_blank" title="收听腾讯微博" rel="nofollow" ><img src="html/channel/test2/images/tt_qq.png" alt="腾讯微博" rel="nofollow" /></a>
+
+
+</div></div>
+</div>
+
+
+<!--登录前-->
+<div class="login-box" id="currentLoginUserInfo"><div class="logins" style="padding-left:10px">
+                <form action="login.php" name="login_FORM" method="post">
+<input type="hidden" name="jumpurl" value="http://www.taoxiangren.com/mode.php?m=area&q=static&type=autostatic&alias=test2" />
+<input type="hidden" name="step" value="2" />
+<ul>
+<li class="login-txt"><input class="txt txt-large" name="pwuser" id="nav_pwuser" placeholder="帐号"  maxlength="20" /></li>	
+<li class="login-txt"><input class="txt txt-large focus" type="password" name="pwpwd" 
+ onfocus="if(IsElement('nav_logintab')) getObj('nav_logintab').style.display='';this.value='';var o_nav_logintab = IsElement('nav_logintab') ? getObj('nav_logintab') : ''; PW_popEvent(o_nav_logintab);" placeholder="密码"/></li>
+ 	
+<li class="login-keep" style="width:230px"><a href="sendpwd.php" style="color:#999">忘记密码</a><label><input type="checkbox" value="315360000" name="cookietime">下次自动登录</label></li>	
+
+<li class="login-btn" style=" height:29px; width:230px;"> 
+<input type="submit" class="register-btn btn" style="border:0;float:left;cursor: pointer; width:90px; height:29px;" value="登录">
+
+<a id="regist" class="register-btn btn1 btn" name="register-btn" href="register.php#breadCrumb" style="color:#FFF">立即注册</a>
+</li><li class="login-others cc">或者<a class="qq" href="javascript:;" onclick="OutSiteLogin.showQQLogin('OWS_QQ_entry_homepage','hangzhou');">QQ登录</a><a class="wb" href="javascript:;" onclick="OutSiteLogin.showSinaLogin('OWS_Sina_entry_homepage','hangzhou');">微博登录</a></li>
+</ul>
+</form>
+                </div></div>
+	
+
+<div class="hdkt">
+<div class="h_tit" style="margin-bottom:0"><div class="view-hover" invokename="活动看台title@test2" altname="活动看台title@test2" channelid="test2"><h2><a href="#" target="_blank">活动看台</a></h2><span class="fr"><a href="#" target="_blank" title="更多">更多>></a></span>
+
+</div></div>
+<ul>
+<div class="view-hover" invokename="活动看台list@test2" altname="活动看台list@test2" channelid="test2"><li><a href="http://taoxiangren.com/read.php?tid=62"><img src="http://taoxiangren.com/attachment/Mon_1210/14_1_e3c2ad88be130ef.png" title="图说老深州，多图" /></a><h2><a href="http://taoxiangren.com/read.php?tid=62">图说老深州，多图</a></h2><p>活动时间：就从这里开始<a href="http://taoxiangren.com/read.php?tid=62" target="_blank" title="我要参加">我要参加</a></p></li><li><a href="http://taoxiangren.com/read.php?tid=16"><img src="http://taoxiangren.com/attachment/Mon_1210/3_1_c471b530ac31c36.jpg" title="那些年逛过的庙会" /></a><h2><a href="http://taoxiangren.com/read.php?tid=16">那些年逛过的庙会</a></h2><p>活动时间：逛庙时光<a href="http://taoxiangren.com/read.php?tid=16" target="_blank" title="我要参加">我要参加</a></p></li></div>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告1@test2" altname="通栏广告1@test2" channelid="test2"><a href=""><img src="attachment/pushpic/20121018045551.jpg" title="" /></a></div></div>
+
+<div id="box2">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="精彩图片title@test2" altname="精彩图片title@test2" channelid="test2"><h2><a href="#" target="_blank">精彩图片</a></h2><span class="fr"><a href="#" target="_blank" title="城市热点">城市热点</a>|<a href="#" target="_blank" title="24小时热点">24小时热点</a>|<a href="#" target="_blank" title="拍客制造">拍客制造</a>|<a href="#" target="_blank" title="拍客征集令">拍客征集令</a>|<a href="#" target="_blank" title="热门播客">热门播客</a></span>
+
+</div></div>
+
+<ul class="colorful cc">
+<div class="view-hover" invokename="精彩图片@test2" altname="精彩图片@test2" channelid="test2"><li class="photo-big"><a title="深州冬日剪影，暖洋洋" href="http://taoxiangren.com/read.php?tid=464" target="_blank"><img alt="深州冬日剪影，暖洋洋" src="http://taoxiangren.com/attachment/Mon_1211/14_15_949a2f42f91bd46.jpg"><span></span><em>深州冬日剪影，暖洋洋</em></a></li><li><a title="形意拳研讨会近日在河" href="read.php?tid=2998" target="_blank"><img alt="形意拳研讨会近日在河" src="http://taoxiangren.com/attachment/mini/165c9e5a74.jpg"><span></span><em>形意拳研讨会近日在河</em></a></li><li><a title="深州西午村的枪决现场" href="read.php?tid=2996" target="_blank"><img alt="深州西午村的枪决现场" src="http://taoxiangren.com/attachment/mini/333674993e.jpg"><span></span><em>深州西午村的枪决现场</em></a></li><li><a title="喜讯-深州倾力打造京" href="read.php?tid=2987" target="_blank"><img alt="喜讯-深州倾力打造京" src="http://taoxiangren.com/attachment/mini/14f959397b.jpg"><span></span><em>喜讯-深州倾力打造京</em></a></li><li><a title="深州寻人-大冯营村贾" href="read.php?tid=2986" target="_blank"><img alt="深州寻人-大冯营村贾" src="attachment/Mon_1409/3_3_42492c0b8459aca.jpg"><span></span><em>深州寻人-大冯营村贾</em></a></li><li><a title="奇怪！恐怖！山西一个" href="read.php?tid=2985" target="_blank"><img alt="奇怪！恐怖！山西一个" src="http://taoxiangren.com/attachment/mini/bc3c74e5c1.jpg"><span></span><em>奇怪！恐怖！山西一个</em></a></li><li><a title="开学了 最有个性的DIY" href="read.php?tid=2975" target="_blank"><img alt="开学了 最有个性的DIY" src="http://taoxiangren.com/attachment/mini/3862d17845.jpg"><span></span><em>开学了 最有个性的DIY</em></a></li><li><a title="转让车牌，或连车一起" href="read.php?tid=2970" target="_blank"><img alt="转让车牌，或连车一起" src="http://taoxiangren.com/attachment/mini/41646db2b6.jpg"><span></span><em>转让车牌，或连车一起</em></a></li><li><a title="婴儿推车，八成新-深" href="read.php?tid=2955" target="_blank"><img alt="婴儿推车，八成新-深" src="http://taoxiangren.com/attachment/mini/702a8073a6.jpg"><span></span><em>婴儿推车，八成新-深</em></a></li></div>
+</ul>
+
+</div>
+
+<div class="ads"><div class="view-hover" invokename="通栏广告2@test2" altname="通栏广告2@test2" channelid="test2"><a href=""><img src="attachment/pushpic/20121018045654.jpg" title="" /></a></div></div>
+
+<div id="box3">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="时尚生活title@test2" altname="时尚生活title@test2" channelid="test2"><h2><a href="#" target="_blank">时尚生活</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=15" target="_blank" title="版块链接">深州车友</a>|<a href="http://taoxiangren.com/thread.php?fid=20" target="_blank" title="版块链接">妈咪宝贝</a>|<a href="http://taoxiangren.com/thread.php?fid=21" target="_blank" title="版块链接">网上购物</a>|<a href="http://taoxiangren.com/thread.php?fid=18" target="_blank" title="版块链接">我爱装修</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">吃遍深州</a></span>
+
+</div></div>
+
+<div class="box3info">
+    <div class="infoImg">
+<div class="view-hover" invokename="精彩图文@test2" altname="精彩图文@test2" channelid="test2">      <h2>房产频道</h2><a href="http://taoxiangren.com/read.php?tid=645" class="pr10">
+        <img src="http://taoxiangren.com/attachment/Mon_1302/17_1_bb4828d9af5a530.jpg?22" width="256" height="127" alt="楼盘推介：育龙湾">
+      </a>
+      <a href="http://taoxiangren.com/read.php?tid=645" class="ceb6100">楼盘推介：育龙湾</a> 
+      <span class="c959595">楼盘名称：育龙湾
+开发商：江苏泰兴第一建筑公司
+小区特点：学区房，紧邻深州市第一中&#46;&#46;.</span><div class="box3msg"><a href="read.php?tid=2969">出租出售七间平房大院-深州租房</a><a href="read.php?tid=2965">桃园居三室出租(深州租房)</a><a href="read.php?tid=2960">卖都市祥苑二期二手房-深州售房</a></div>
+
+
+
+
+</div>
+    </div>
+    <div class="favoriteSelect">
+<div class="view-hover" invokename="贴贴精选上@test2" altname="贴贴精选上@test2" channelid="test2">      <h2 class="sosobg">生活信息</h2><b><a href="http://taoxiangren.com/read.php?tid=469">便民服务：深州便民电话大全</a></b><div class="tac"><a href="read.php?tid=2969" class="ceb6100">[出租出售七间平房]</a>&#160;<a href="read.php?tid=2965" class="ceb6100">[桃园居三室出租(]</a>&#160;<a href="read.php?tid=2960" class="ceb6100">[卖都市祥苑二期二]</a>&#160;</div><a href="http://taoxiangren.com/thread.php?fid=21" class="cb28850">[网上卖场]</a><a href="read.php?tid=627">深州市千只柴鸡和鸡蛋寻销路</a> <br><a href="http://taoxiangren.com/thread.php?fid=21" class="cb28850">[网上卖场]</a><a href="read.php?tid=622">豪华商务汽车 深州至石家庄 每位三十元 全程高速</a> <br><a href="http://taoxiangren.com/thread.php?fid=21" class="cb28850">[网上卖场]</a><a href="read.php?tid=618">处理旧摩托三轮一辆</a> <br><a href="http://taoxiangren.com/thread.php?fid=21" class="cb28850">[网上卖场]</a><a href="read.php?tid=594">安平厂家烟花爆竹直销，需要的联系</a> <br></div>
+<div class="view-hover" invokename="贴贴精选下@test2" altname="贴贴精选下@test2" channelid="test2"><b class="line"><a href="http://taoxiangren.com/read.php?tid=39">特色店巡介二：老十字街回民饭店</a></b><div class="tac"><a href="read.php?tid=2974" class="ceb6100">[泰山路饭庄招服务]</a>&nbsp;<a href="read.php?tid=2971" class="ceb6100">[家佳乐超市面包房]</a>&nbsp;<a href="read.php?tid=2968" class="ceb6100">[车间招操作工-深]</a>&nbsp;</div><a href="http://www.taoxiangren.com/thread.php?fid=12" class="cb28850">[深州美食]</a><a href="read.php?tid=2981">深州乡情铁锅炖，喜迎中秋答谢新老顾客</a> <br><a href="http://www.taoxiangren.com/thread.php?fid=12" class="cb28850">[深州美食]</a><a href="read.php?tid=2478">数一数咱河北各地美食吧</a> <br><a href="http://www.taoxiangren.com/thread.php?fid=12" class="cb28850">[深州美食]</a><a href="read.php?tid=2462">深州老烧鸡原来已经全国文明了北京好几家呢！</a> <br><a href="http://www.taoxiangren.com/thread.php?fid=12" class="cb28850">[深州美食]</a><a href="read.php?tid=2439">深州刁家五香鸡 不知道现在还有没有这个店。记得</a> <br></div>
+    </div>
+
+    <div class="hotSort">
+      <h2><div class="view-hover" invokename="热帖排行title@test2" altname="热帖排行title@test2" channelid="test2"><a href="#" class="fr f12" style="font-weight:100">查看更多</a>育儿交流
+
+
+</div></h2>
+      <div class="sort">
+        <ul>
+<div class="view-hover" invokename="热帖排行list@test2" altname="热帖排行list@test2" channelid="test2"><li class="pl0">
+            <b>
+              <a href="http://taoxiangren.com/read.php?tid=13" class="ceb6100">晒我家宝宝~~</a>
+            </b>
+            <a href="http://taoxiangren.com/read.php?tid=13" class="fl pr10">
+              <img src="http://taoxiangren.com/attachment/Mon_1210/20_1_43df8544e753b51.jpg" width="100" height="80" alt="晒我家宝宝~~">
+            </a>
+            <span class="c959595">我家宝宝，晒靓照，嘿嘿...</span>
+          </li><li><a href="http://www.taoxiangren.com/thread.php?fid=20" class="cb28850">[妈咪宝贝]</a> <a href="read.php?tid=550">二胎怀上男孩的个人经验</a></li><li><a href="http://www.taoxiangren.com/thread.php?fid=20" class="cb28850">[妈咪宝贝]</a> <a href="read.php?tid=549">孕妈必吃的几种零食，怀孕还</a></li><li><a href="http://www.taoxiangren.com/thread.php?fid=20" class="cb28850">[妈咪宝贝]</a> <a href="read.php?tid=548">8招提高宝宝的免疫力</a></li><li><a href="http://www.taoxiangren.com/thread.php?fid=20" class="cb28850">[妈咪宝贝]</a> <a href="read.php?tid=547">天杀的人贩子，公园里扮请求</a></li></div>
+
+
+        </ul>
+        <div class="c"></div>
+        <div class="view-hover" invokename="热帖排行ad@test2" altname="热帖排行ad@test2" channelid="test2"><a href="read.php?tid=2998" target="_blank"><img src="http://taoxiangren.com/attachment/mini/1fbeff0878.jpg" width="255" height="70" alt="形意拳研讨会近日在河北深州举办" title="形意拳研讨会近日在河北深州举办"></a></div>
+      </div>
+    </div>
+      <div class="c"></div>
+      <div class="MemberShow">
+        <b class="rc-lt"></b>
+        <b class="rc-rt"></b>
+        <a class="rc-nl rr" id="go_left"></a>
+        <a class="rc-nr rr" id="go_right"></a>
+        <div id="scroll" class="scroll">
+	        <ul id="scrollul">
+<div class="view-hover" invokename="会员风采@test2" altname="会员风采@test2" channelid="test2"><li>
+<a href="read.php?tid=2998" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/24271ab0fe.jpg" alt="形意拳研讨会近日">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2998" class="ceb6100">形意拳研讨会近日</a>
+	                <em class="c959595">       日前，2014第三届国家级非物质文化遗产形意拳</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2996" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/fd3b625a3c.jpg" alt="深州西午村的枪决">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2996" class="ceb6100">深州西午村的枪决</a>
+	                <em class="c959595">今天上午开车路过北午村公路看到的，把路都截住了，一</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2987" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/e065300856.jpg" alt="喜讯-深州倾力打">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2987" class="ceb6100">喜讯-深州倾力打</a>
+	                <em class="c959595">     新浪网9月17日的最新消息，深州将打造京津石休闲</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2986" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/7d90cfff21.jpg" alt="深州寻人-大冯营">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2986" class="ceb6100">深州寻人-大冯营</a>
+	                <em class="c959595">      贾会英女46岁语言有障碍精神有问题，于9月13日</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2985" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/9d955614d8.jpg" alt="奇怪！恐怖！山西">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2985" class="ceb6100">奇怪！恐怖！山西</a>
+	                <em class="c959595">早就听说深县人是从山西洪桐一个叫大槐树的地方迁徙过</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2975" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/cc48b9477a.jpg" alt="开学了 最有个性">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2975" class="ceb6100">开学了 最有个性</a>
+	                <em class="c959595">开学了 最有个性的DIYT恤 你穿了吗？？夏装最后一次大</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2970" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/8fe8b593b1.jpg" alt="转让车牌，或连车">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2970" class="ceb6100">转让车牌，或连车</a>
+	                <em class="c959595">转让车牌，或连车一起转让，车牌冀T6N666,  电话13253</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2955" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/d5414d3c07.jpg" alt="婴儿推车，八成新">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2955" class="ceb6100">婴儿推车，八成新</a>
+	                <em class="c959595">婴儿推车，八成新，深县同城交易，有意者请联系136431</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2917" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/f31c322e3e.jpg" alt="深州反恐部队，街">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2917" class="ceb6100">深州反恐部队，街</a>
+	                <em class="c959595">虽然是民兵，但也英姿飒爽，赞！我大深州的英雄护卫</em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2896" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/609d8cdc63.jpg" alt="医保中心拍摄的报">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2896" class="ceb6100">医保中心拍摄的报</a>
+	                <em class="c959595"></em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2887" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/078c9805ba.jpg" alt="圣诞庆典改到周日">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2887" class="ceb6100">圣诞庆典改到周日</a>
+	                <em class="c959595"></em>
+	              </span>
+	            </li><li>
+<a href="read.php?tid=2881" class="fl pr10">
+	                <img src="http://taoxiangren.com/attachment/mini/1f1c39bf92.jpg" alt="深州当代名人传记">
+	              </a>
+	              <span>
+	                <a href="read.php?tid=2881" class="ceb6100">深州当代名人传记</a>
+	                <em class="c959595"></em>
+	              </span>
+	            </li></div>
+	          	        </ul>
+        </div>
+<script type="text/javascript">
+new Marquee(
+{
+	MSClass	  : ["scroll","scrollul"],
+	Direction : 2,
+	PrevBtnID : "go_left",
+	NextBtnID : "go_right",
+	Step	  : 0.3,
+	Width	  : 828,
+	Height	  : 60,
+	Timer	  : 20,
+	DelayTime : 3000,
+	WaitTime  : 5000,
+	ScrollStep: 275,
+	SwitchType: 0,
+	AutoStart : true
+});
+</script>
+     </div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告3@test2" altname="通栏广告3@test2" channelid="test2"><a href=""><img src="attachment/pushpic/20121018045753.jpg" title="" /></a></div></div>
+
+<div id="box4">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="论坛版块title@test2" altname="论坛版块title@test2" channelid="test2"><h2><a href="#" target="_blank">论坛版块</a></h2><span class="fr"><a href="http://taoxiangren.com/thread.php?fid=3" target="_blank" title="版块链接">百姓话题</a>|<a href="http://taoxiangren.com/thread.php?fid=12" target="_blank" title="版块链接">深州美食</a>|<a href="http://taoxiangren.com/thread.php?fid=13" target="_blank" title="版块链接">友缘深州</a>|<a href="http://taoxiangren.com/thread.php?fid=21" target="_blank" title="版块链接">二手市场</a>|<a href="http://taoxiangren.com/thread.php?fid=24" target="_blank" title="版块链接">人才招聘</a></span>
+
+</div></div>
+
+<div class="box4info cc">
+<div class="fl forumlist">
+<ul class="club-list">
+
+<li class="club19 club">
+<div class="board">
+<h2><a href="thread.php?fid=19" target="_blank" title="婚庆采购、婚纱摄影，结婚日记，分享喜悦，分享精彩时刻！">喜庆婚嫁</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=19" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>婚庆采购、婚纱摄影，结婚日记，分享喜悦，分享精彩时刻！</p>
+</div>
+</div>
+</li>
+
+<li class="club3 club">
+<div class="board">
+<h2><a href="thread.php?fid=3" target="_blank" title="关注百姓生活，关注深州的街头巷尾，分享、评说你身边的大事、小事、新鲜事！">百姓话题</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=3" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>关注百姓生活，关注深州的街头巷尾，分享、评说你身边的大事、小事、新鲜事！</p>
+</div>
+</div>
+</li>
+
+<li class="club18 club">
+<div class="board">
+<h2><a href="thread.php?fid=18" target="_blank" title="装修设计，装修心得，建材价格，家装团购，说说你与装修的故事！">我爱装修</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=18" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>装修设计，装修心得，建材价格，家装团购，说说你与装修的故事！</p>
+</div>
+</div>
+</li>
+
+<li class="club17 club">
+<div class="board">
+<h2><a href="thread.php?fid=17" target="_blank" title="关注深州房产楼市行情，买房，买好房!">房产楼市</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=17" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>关注深州房产楼市行情，买房，买好房!</p>
+</div>
+</div>
+</li>
+
+<li class="club16 club">
+<div class="board">
+<h2><a href="thread.php?fid=16" target="_blank" title="哥不是广场上算卦的，唠不出那么好听的嗑，随便侃，灌水、闲聊、杂谈......">闲聊广场</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=16" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>哥不是广场上算卦的，唠不出那么好听的嗑，随便侃，灌水、闲聊、杂谈......</p>
+</div>
+</div>
+</li>
+
+<li class="club15 club">
+<div class="board">
+<h2><a href="thread.php?fid=15" target="_blank" title="品车、购车、用车、养车，以车会友!">深州车友</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=15" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>品车、购车、用车、养车，以车会友!</p>
+</div>
+</div>
+</li>
+
+<li class="club14 club">
+<div class="board">
+<h2><a href="thread.php?fid=14" target="_blank" title="摄影、自拍、写真、扫街，我拍我秀">我拍我秀</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=14" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>摄影、自拍、写真、扫街，我拍我秀</p>
+</div>
+</div>
+</li>
+
+<li class="club13 club">
+<div class="board">
+<h2><a href="thread.php?fid=13" target="_blank" title="交友、征婚、情感日记，单身男女，同城情缘！">友缘深州</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=13" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>交友、征婚、情感日记，单身男女，同城情缘！</p>
+</div>
+</div>
+</li>
+
+<li class="club12 club">
+<div class="board">
+<h2><a href="thread.php?fid=12" target="_blank" title="发现深州美食，分享深州美食，展示交流厨艺！">深州美食</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=12" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>发现深州美食，分享深州美食，展示交流厨艺！</p>
+</div>
+</div>
+</li>
+
+<li class="club20 club">
+<div class="board">
+<h2><a href="thread.php?fid=20" target="_blank" title="深州妈妈们的专属区，育儿经验交流，宝贝靓照展示！">妈咪宝贝</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=20" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>深州妈妈们的专属区，育儿经验交流，宝贝靓照展示！</p>
+</div>
+</div>
+</li>
+
+<li class="club21 club">
+<div class="board">
+<h2><a href="thread.php?fid=21" target="_blank" title="商品出售、二手交易，物品置换，深州网上交易平台！">网上卖场</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=21" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>商品出售、二手交易，物品置换，深州网上交易平台！</p>
+</div>
+</div>
+</li>
+
+<li class="club22 club">
+<div class="board">
+<h2><a href="thread.php?fid=22" target="_blank" title="深州房租出租、求租、合租、二手房信息发布">租房二手房</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=22" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>深州房租出租、求租、合租、二手房信息发布</p>
+</div>
+</div>
+</li>
+
+<li class="club23 club">
+<div class="board">
+<h2><a href="thread.php?fid=23" target="_blank" title="深州商家打折促销信息，一网打进！">打折信息</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=23" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>深州商家打折促销信息，一网打进！</p>
+</div>
+</div>
+</li>
+
+<li class="club24 club">
+<div class="board">
+<h2><a href="thread.php?fid=24" target="_blank" title="深州企业人才招聘 ，个人求职专版">人才招聘</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=24" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>深州企业人才招聘 ，个人求职专版</p>
+</div>
+</div>
+</li>
+
+<li class="club25 club">
+<div class="board">
+<h2><a href="thread.php?fid=25" target="_blank" title="小区业主论坛">小区论坛</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=25" target="_blank"><img src="html/channel/test2/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p>小区业主论坛</p>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+
+<div class="fr" style="padding-top:5px">
+
+<div class="hotSort">
+    
+    
+      <h2 id="sort_tab"><span class="switchNavItem">今日</span><span class="switchNavItem">本周</span><span class="switchNavItem">本月</span></h2>
+      <div class="sort" id="sort_list">
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="今日帖子排行@test2" altname="今日帖子排行@test2" channelid="test2"><li><em class="lc1">1</em><span class="r_txt"><a target="_blank" href="read.php?tid=2998">形意拳研讨会近日在河北深州举办</a><a target="_blank" href="read.php?tid=2998"><span>(共170人参与)</span></a></span></li><li><em class="lc2">2</em><span class="r_txt"><a target="_blank" href="read.php?tid=2996">深州西午村的枪决现场</a><a target="_blank" href="read.php?tid=2996"><span>(共283人参与)</span></a></span></li><li><em class="lc3">3</em><span class="r_txt"><a target="_blank" href="read.php?tid=2989">桃乡人网官方群，速加，加入即网站VIP，满即止</a><a target="_blank" href="read.php?tid=2989"><span>(共268人参与)</span></a></span></li><li><em class="lc4">4</em><span class="r_txt"><a target="_blank" href="read.php?tid=2988">2014-2015赛季深州篮球赛报名通知！</a><a target="_blank" href="read.php?tid=2988"><span>(共288人参与)</span></a></span></li><li><em class="lc5">5</em><span class="r_txt"><a target="_blank" href="read.php?tid=2987">喜讯-深州倾力打造京津石休闲度假后花园</a><a target="_blank" href="read.php?tid=2987"><span>(共1825人参与)</span></a></span></li><li><em class="lc6">6</em><span class="r_txt"><a target="_blank" href="read.php?tid=2986">深州寻人-大冯营村贾会英走失</a><a target="_blank" href="read.php?tid=2986"><span>(共288人参与)</span></a></span></li><li><em class="lc7">7</em><span class="r_txt"><a target="_blank" href="read.php?tid=2985">奇怪！恐怖！山西一个镇居然全是深县口音！！</a><a target="_blank" href="read.php?tid=2985"><span>(共495人参与)</span></a></span></li><li><em class="lc8">8</em><span class="r_txt"><a target="_blank" href="read.php?tid=2984">正能量！深州农民大哥脚趾被切， 省会百辆警车开路送</a><a target="_blank" href="read.php?tid=2984"><span>(共251人参与)</span></a></span></li><li><em class="lc9">9</em><span class="r_txt"><a target="_blank" href="read.php?tid=2983">深州交警查获一盗抢车辆 后备箱藏有猎枪</a><a target="_blank" href="read.php?tid=2983"><span>(共290人参与)</span></a></span></li><li><em class="lc10">10</em><span class="r_txt"><a target="_blank" href="read.php?tid=2982">祝全市人民中秋快乐!</a><a target="_blank" href="read.php?tid=2982"><span>(共275人参与)</span></a></span></li></div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本周帖子排行@test2" altname="本周帖子排行@test2" channelid="test2"><li><em class="lc1">1</em><span class="r_txt"><a target="_blank" href="read.php?tid=76">拍摄海景婚纱照的新娘发型推荐</a><a target="_blank" href="read.php?tid=76"><span>(共4187人参与)</span></a></span></li><li><em class="lc2">2</em><span class="r_txt"><a target="_blank" href="read.php?tid=469">深州便民电话大全</a><a target="_blank" href="read.php?tid=469"><span>(共3727人参与)</span></a></span></li><li><em class="lc3">3</em><span class="r_txt"><a target="_blank" href="read.php?tid=616">又是一年春节到，让我们一起回家。。。</a><a target="_blank" href="read.php?tid=616"><span>(共3296人参与)</span></a></span></li><li><em class="lc4">4</em><span class="r_txt"><a target="_blank" href="read.php?tid=62">图说老深州，多图，再现历史时光中的深州城</a><a target="_blank" href="read.php?tid=62"><span>(共3283人参与)</span></a></span></li><li><em class="lc5">5</em><span class="r_txt"><a target="_blank" href="read.php?tid=71">图说深州之小乡村，那里有我的父老乡亲</a><a target="_blank" href="read.php?tid=71"><span>(共3210人参与)</span></a></span></li><li><em class="lc6">6</em><span class="r_txt"><a target="_blank" href="read.php?tid=1959">深州化肥厂爆炸了 阳煤 伤一人！</a><a target="_blank" href="read.php?tid=1959"><span>(共3126人参与)</span></a></span></li><li><em class="lc7">7</em><span class="r_txt"><a target="_blank" href="read.php?tid=550">二胎怀上男孩的个人经验</a><a target="_blank" href="read.php?tid=550"><span>(共2875人参与)</span></a></span></li><li><em class="lc8">8</em><span class="r_txt"><a target="_blank" href="read.php?tid=72">大量全新小米M1双核1.5现货，急售！</a><a target="_blank" href="read.php?tid=72"><span>(共2848人参与)</span></a></span></li><li><em class="lc9">9</em><span class="r_txt"><a target="_blank" href="read.php?tid=627">深州市千只柴鸡和鸡蛋寻销路</a><a target="_blank" href="read.php?tid=627"><span>(共2773人参与)</span></a></span></li><li><em class="lc10">10</em><span class="r_txt"><a target="_blank" href="read.php?tid=503">深州特色店之国营老回民饭店</a><a target="_blank" href="read.php?tid=503"><span>(共2715人参与)</span></a></span></li></div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本月帖子排行@test2" altname="本月帖子排行@test2" channelid="test2"><li><em class="lc1">1</em><span class="r_txt"><a target="_blank" href="read.php?tid=76">拍摄海景婚纱照的新娘发型推荐</a><a target="_blank" href="read.php?tid=76"><span>(共4187人参与)</span></a></span></li><li><em class="lc2">2</em><span class="r_txt"><a target="_blank" href="read.php?tid=469">深州便民电话大全</a><a target="_blank" href="read.php?tid=469"><span>(共3726人参与)</span></a></span></li><li><em class="lc3">3</em><span class="r_txt"><a target="_blank" href="read.php?tid=616">又是一年春节到，让我们一起回家。。。</a><a target="_blank" href="read.php?tid=616"><span>(共3296人参与)</span></a></span></li><li><em class="lc4">4</em><span class="r_txt"><a target="_blank" href="read.php?tid=62">图说老深州，多图，再现历史时光中的深州城</a><a target="_blank" href="read.php?tid=62"><span>(共3283人参与)</span></a></span></li><li><em class="lc5">5</em><span class="r_txt"><a target="_blank" href="read.php?tid=71">图说深州之小乡村，那里有我的父老乡亲</a><a target="_blank" href="read.php?tid=71"><span>(共3210人参与)</span></a></span></li><li><em class="lc6">6</em><span class="r_txt"><a target="_blank" href="read.php?tid=1959">深州化肥厂爆炸了 阳煤 伤一人！</a><a target="_blank" href="read.php?tid=1959"><span>(共3126人参与)</span></a></span></li><li><em class="lc7">7</em><span class="r_txt"><a target="_blank" href="read.php?tid=550">二胎怀上男孩的个人经验</a><a target="_blank" href="read.php?tid=550"><span>(共2875人参与)</span></a></span></li><li><em class="lc8">8</em><span class="r_txt"><a target="_blank" href="read.php?tid=72">大量全新小米M1双核1.5现货，急售！</a><a target="_blank" href="read.php?tid=72"><span>(共2848人参与)</span></a></span></li><li><em class="lc9">9</em><span class="r_txt"><a target="_blank" href="read.php?tid=627">深州市千只柴鸡和鸡蛋寻销路</a><a target="_blank" href="read.php?tid=627"><span>(共2773人参与)</span></a></span></li><li><em class="lc10">10</em><span class="r_txt"><a target="_blank" href="read.php?tid=503">深州特色店之国营老回民饭店</a><a target="_blank" href="read.php?tid=503"><span>(共2715人参与)</span></a></span></li></div></ol>
+        </div>
+        <script>ddSliderPlayers('sort_list','sort_tab',0,'on');</script>
+              <h2 style="margin-top:10px"><div class="view-hover" invokename="会员排行title@test2" altname="会员排行title@test2" channelid="test2">会员排行
+</div></h2>
+      <div class="sort">
+		<dl>
+<div class="view-hover" invokename="会员排行@test2" altname="会员排行@test2" channelid="test2"></div>
+        </dl>
+      </div>
+<div class="ad2" style="padding-top:12px"><div class="view-hover" invokename="论坛版块ad@test2" altname="论坛版块ad@test2" channelid="test2"><a target="_blank" href=""><img src="attachment/pushpic/20121018160535.jpg" width="260" height="90" title="" /></a></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告4@test2" altname="通栏广告4@test2" channelid="test2"><a href=""><img src="attachment/pushpic/20121018045843.jpg" title="" /></a></div></div>
+
+<div id="box5">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="友情链接title@test2" altname="友情链接title@test2" channelid="test2"><h2>友情链接</h2><span class="fr"><a href="#" target="_blank" title="申请友情链接">+ 申请友情链接 +</a></span>
+
+</div></div>
+<div class="box5info"><div class="view-hover" invokename="友情链接list@test2" altname="友情链接list@test2" channelid="test2"><ul class="cc"><li><a href="http://taoxiangren.com/fenlei" target="_blank"><img alt="" src="attachment/pushpic/20140906143740.gif"></a></li></ul><ul class="cc"><li><a href="http://sns.konpn.com/" target="_blank">理财-控盘网</a></li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+</div>
+
+<div class="c"></div>
+</div>
+<div class="footer-wrap">
+<div class="c"></div>
+<div id="bottom"></div>
+
+<div id="footer">
+	<div class="mb5">
+	<div class="bottom tac">
+
+<span class="mr10"><a id="nav_key_up_12" href="sendemail.php" title="" >联系我们</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_13" href="simple/" title="" >无图版</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_14" href="m/introduce.php" title="" >手机浏览</a></span><span class="gray mr10">|</span><a href="job.php?action=erasecookie&verify=08c146bf">清除Cookies</a>
+
+	</div>
+	</div>
+	<div class="s6 tac">
+		<p class="mb5" id="footInfo">Powered by <a href="http://www.phpwind.net/" target="_blank" class="s4">phpwind v8.7</a>&nbsp;<a href="http://www.phpwind.com/certificate.php?host=www.taoxiangren.com" target="_blank">Certificate</a> Copyright<br /> &copy;2003-2011 <a href="http://www.taoxiangren.com/" target="_blank">深州桃乡人网-深州房产 深州招聘 生活信息</a> 版权所有 <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备11048881号-4</a> <script src="http://s15.cnzz.com/stat.php?id=4649710&web_id=4649710&show=pic" language="JavaScript"></script>
+ <span id="stats"></span>
+
+		</p>
+<script type="text/javascript" src="js/global.js"></script>
+
+
+<img height="0" width="0" src="mode.php?m=area&q=static&type=autostatic&alias=test2" />
+
+	</div>
+</div></div>
+</body></html>
+<script>
+var openmenu = {'td_userinfomore' : 'menu_userinfomore','td_u' : 'menu_u','td_home' : 'menu_home','td_profile' : 'menu_profile','td_message' : 'menu_message','td_sort' : 'menu_sort'};
+window.onReady(function(){
+	read.InitMenu();
+	//消息提示
+	new messageTip(90).init();
+});
+</script>
+
+

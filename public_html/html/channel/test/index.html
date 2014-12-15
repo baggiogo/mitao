@@ -1,0 +1,566 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gbk" />
+<title>test - 桃乡人网 - Powered by phpwind</title>
+<meta name="generator" content="phpwind 8.7" />
+<meta name="description" content="桃乡人网" />
+<meta name="keywords" content="test - 桃乡人网" />
+<base id="headbase" href="http://taoxiangren.com/" />
+<link rel="stylesheet" href="images/pw_core.css?20111111" />
+<link rel="stylesheet" href="html/channel/test/images/head.css?20111111" />
+<link rel="stylesheet" href="html/channel/test/images/style.css?20111111" /><script type="text/javascript" src="html/channel/test/images/MSClass.js"></script>
+<script type="text/javascript" src="js/core/core.js"></script>
+<script type="text/javascript" src="js/pw_ajax.js"></script>
+<script>
+var pw_baseurl = "http://taoxiangren.com";
+var imgpath = 'images';
+//var verifyhash = '41db46d0';
+var modeimg = 'mode/area/images';
+var modeBase = 'mode.php?m=area';
+var winduid = '';
+var windid	= '';
+var groupid	= 'guest';
+var channelid	= '8';
+</script>
+<!--[if IE 9 ]>
+<meta name="msapplication-task" content="name=网站首页; action-uri=http://taoxiangren.com; icon-uri=favicon.ico" />
+<meta name="msapplication-task" content="name=个人中心; action-uri=u.php; icon-uri=images/ico/home.ico" />
+<meta name="msapplication-task" content="name=我的帖子; action-uri=apps.php?q=article; icon-uri=images/ico/post.ico" />
+<meta name="msapplication-task" content="name=消息中心; action-uri=message.php; icon-uri=images/ico/mail.ico" />
+<meta name="msapplication-task" content="name=我的设置; action-uri=profile.php; icon-uri=images/ico/edit.ico" />
+<![endif]-->
+</head>
+<body id="body">
+<script type="text/javascript">
+function $(id){return document.getElementById(id)};
+</script>
+
+<div id="top">
+	<div class="top cc">
+		<script type="text/javascript" src="mode.php?m=area&q=header&ifactive=&alias=test&t=1350408064"></script>
+		<a href="http://taoxiangren.com/" title="" id="logo"></a>
+    	<ul>
+
+		<li class="current" onmouseover="ctrlSubMenu('nav_key_sub_2','nav_key_sub_2');"><a id="nav_key_up_2" href="index.php?m=area" title="" >门户</a></li>
+
+		<li><a id="nav_key_up_1" href="index.php?m=bbs" title="" >论坛</a></li>
+
+		<li><a id="nav_key_up_9" href="html/channel/tucool" title="" >图酷</a></li>
+
+		<li><a id="nav_key_up_3" href="index.php?m=cms" title="" >资讯</a></li>
+
+		<li><a id="nav_key_up_10" href="group.php" title="" >群组</a></li>
+
+        </ul>
+        <div class="searchA fl cc">
+        	<form action="searcher.php" method="post" onSubmit="return searchCheck(this);">
+	        	<input type="hidden" value="41db46d0" name="verify">
+	            <input value="2" type="hidden" name="step">
+	            <input value="thread" type="hidden" id="search_type" name="type">
+	            <div class="ip"><input id="search_input" type="text" value="搜索其实很简单！" class="gray" name="keyword" onFocus="searchFocus(this)" onBlur="searchBlur(this)" /></div>
+	            <div class="s_select" onMouseOut="this.firstChild.style.display='none';" onMouseOver="this.firstChild.style.display='block';"><ul onClick="getSearchType(event)"><li type="thread" style="display:none">帖子</li><li type="user" >用户</li><li type="forum" >版块</li></ul><h6>帖子</h6></div>
+	            <button type="submit" class="cp fl"> </button>
+            </form>
+            
+        </div>
+
+
+    </div>
+
+<div id="navB" class="pr">
+
+        	<div id="nav_key_sub_2" class="navB" style="position:absolute; width:100%; top:0px; z-index:11; display:none;">
+	<div class="navBbg">
+                <ul class="menuListC cc"><li><a id="nav_key_up_5" href="html/channel/baby" title="" >亲子</a></li><li><a id="nav_key_up_6" href="html/channel/delicious" title="" >美食</a></li><li><a id="nav_key_up_7" href="html/channel/auto" title="" >汽车</a></li><li><a id="nav_key_up_8" href="html/channel/decoration" title="" >家装</a></li></ul>
+	</div>
+            </div>
+
+		</div>
+</div>
+
+
+<script>
+function updateCache(alias){
+	var url = 'mode.php?m=area&q=static&alias='+alias;
+	ajax.send(url,'',ajax.get);
+}
+</script>
+<script>
+var timeoutSpecifyId = {};
+
+function tmpClose(elementId) {
+	timeoutSpecifyId[elementId] = setTimeout(function() {
+		getObj(elementId).style.display = 'none';
+	}, 100);
+}
+function tmpHideAllCross(currentSubMenuId) {
+	var elements = getElementsByClassName('navB', getObj('navB'));
+	for (i=0; i<elements.length; i++) {
+		if (elements[i].id != '' && elements[i].id != currentSubMenuId) elements[i].style.display = 'none';
+	}
+}
+
+function ctrlSubMenu(parentId, subMenuId) {
+	clearTimeout(timeoutSpecifyId[subMenuId]);
+
+	tmpHideAllCross(subMenuId);
+	getObj(subMenuId).style.display = '';
+
+	getObj(parentId).onmouseout = function() {
+		tmpClose(subMenuId);
+		getObj(parentId).onmouseout = '';
+	};
+	getObj(subMenuId).onmouseout = function() {
+		tmpClose(subMenuId);
+	};
+	getObj(subMenuId).onmouseover = function() {
+		clearTimeout(timeoutSpecifyId[subMenuId]);
+		getObj(subMenuId).style.display = '';
+	};
+}
+</script>
+	
+<script>
+function searchCheck(o) {
+	getVerify(o);
+	return searchInput();
+}
+
+function getVerify(o) {
+	o.verify.value = verifyhash;
+	return true;
+}
+</script>
+<div class="c"></div>
+<div id="main">
+<script type="text/javascript" src="mode/area/js/ddsliderplayer.js"></script>	
+<div id="nav_sub" class="mb10">
+  <dl>
+<div class="view-hover" invokename="副导航@test" altname="副导航@test" channelid="test">    <dt id="tag_01">热门</dt>
+    <dd><a href="#" title="" target="_blank">版块名称</a><a href="/tuangou/" title="" target="_blank">版块名称</a><a href="/wuhan/" title="" target="_blank">版块名称</a><a href="/liaotian/" title="" target="_blank">版块名称</a><a href="/hunjia/" title="" target="_blank">版块名称</a><a href="/baobao/" title="" target="_blank">版块名称</a></dd>
+    <dt id="tag_02">生活</dt>
+    <dd style="width:285px;"><a href="/liren/" title="" target="_blank">版块名称</a><a href="/qinggan/" title="" target="_blank">版块名称</a><a href="/woxiu/" title="" target="_blank">会员相册</a><a href="/wanle/" title="" target="_blank">版块名称</a><a href="/tiaozaoshichang/" target="_blank">版块名称</a><a href="/chongwu/" target="_blank">版块名称</a><a href="/huwai/" title="" target="_blank">版块名称</a><a href="/jiaju/" title="" target="_blank">版块名称</a></dd>
+    <dt id="tag_03">服务</dt>
+    <dd style="width:355px;"><a href="/liren/" title="" target="_blank">版块名称</a><a href="/qinggan/" title="" target="_blank">版块名称</a><a href="/woxiu/" title="" target="_blank">版块名称</a><a href="/wanle/" title="" target="_blank">版块名称</a><a href="/tiaozaoshichang/" target="_blank">版块名称</a><a href="/chongwu/" target="_blank">版块名称</a><a href="/huwai/" title="" target="_blank">版块名称</a><a href="/jiaju/" title="" target="_blank">版块名称</a><a href="/huwai/" title="" target="_blank">版块名称</a><a href="/jiaju/" title="" target="_blank">版块名称</a></dd>
+
+
+</div>
+  </dl>
+</div><div id="box1">
+<div class="box1left fl">
+<div class="h_tit"><div class="view-hover" invokename="今日热点title@test" altname="今日热点title@test" channelid="test"><h2><a href="#" target="_blank">今日热点</a></h2><span class="fr"><a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a></span>
+
+
+</div></div>
+<div class="fl"><div class="pwSlideWrap"><div class="view-hover" invokename="图片播放器@test" altname="图片播放器@test" channelid="test"><div id="pwSlidePlayer" class="pwSlide"><ul class="switch" id="PP1_A"><li class="switchItem" style="display:"><a href="" target="_blank"><img src="images/nopic.gif" width="286" height="236" /></a>
+                    <h3><a href="" target="_blank"></a></h3>
+                    <p><a href="" target="_blank">[详细]</a></p></li></ul>
+	<div class="pwSlide-bg"></div>
+	<ul class="SwitchNav" id="PP1_B"><li class="switchNavItem"><a href="#" onclick="return false;">1</a></li></ul>
+</div>
+		<script>onReady(function(){ddSliderPlayers('PP1_A','PP1_B',4,'current');})</script>
+        
+        
+</div></div>
+<div class="lifehelp">
+<h1><span class="fr" id="zstab"><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a><a href="javascript:void(0)" class="switchNavItem"></a></span><strong>便民小工具</strong></h1>
+        <div class="helpUL">
+        	<div id="contain">
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民1@test" altname="便民1@test" channelid="test"><li><a target="_blank" href="#" title="天气查询"><img src="html/channel/test/images/icon/tq.gif"><p>天气查询</p></a></li>
+<li><a target="_blank" href="#" title="万年历"><img src="html/channel/test/images/icon/wnl.gif"><p>万年历</p></a></li>
+<li><a target="_blank" href="#" title="IP查询"><img src="html/channel/test/images/icon/ip.gif"><p>IP查询</p></a></li>
+<li><a target="_blank" href="#" title="归属地"><img src="html/channel/test/images/icon/gsd.gif"><p>归属地</p></a></li>
+<li><a target="_blank" href="#" title="邮编查询"><img src="html/channel/test/images/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="#" title="快递查询"><img src="html/channel/test/images/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="#" title="电影查询"><img src="html/channel/test/images/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="#" title="彩票查询"><img src="html/channel/test/images/icon/cp.gif"><p>彩票查询</p></a></li>
+    
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民2@test" altname="便民2@test" channelid="test"><li><a target="_blank" href="#" title="计算器"><img src="html/channel/test/images/icon/jsq.gif"><p>计算器</p></a></li>
+<li><a target="_blank" href="#" title="购房计算"><img src="html/channel/test/images/icon/gf.gif"><p>购房计算</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="html/channel/test/images/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="html/channel/test/images/icon/jj.gif"><p>家居计算</p></a></li>
+<li><a target="_blank" href="#" title="公交换乘"><img src="html/channel/test/images/icon/gj.gif"><p>公交换乘</p></a></li>
+<li><a target="_blank" href="#" title="火车时刻"><img src="html/channel/test/images/icon/hc.gif"><p>火车时刻</p></a></li>
+<li><a target="_blank" href="#" title="长途汽车"><img src="html/channel/test/images/icon/ct.gif"><p>长途汽车</p></a></li>
+<li><a target="_blank" href="#" title="交通违章"><img src="html/channel/test/images/icon/wz.gif"><p>交通违章</p></a></li>
+
+</div></ul>
+                <ul class="switchItem cc" style="display:none"><div class="view-hover" invokename="便民3@test" altname="便民3@test" channelid="test"><li><a target="_blank" href="#" title="机票查询"><img src="html/channel/test/images/icon/jp.gif"><p>机票查询</p></a></li>
+<li><a target="_blank" href="#" title="邮编查询"><img src="html/channel/test/images/icon/yb.gif"><p>邮编查询</p></a></li>
+<li><a target="_blank" href="#" title="快递查询"><img src="html/channel/test/images/icon/kd.gif"><p>快递查询</p></a></li>
+<li><a target="_blank" href="#" title="电影查询"><img src="html/channel/test/images/icon/film.gif"><p>电影查询</p></a></li>
+<li><a target="_blank" href="#" title="养老金"><img src="html/channel/test/images/icon/ylj.gif"><p>养老金</p></a></li>
+<li><a target="_blank" href="#" title="家居计算"><img src="html/channel/test/images/icon/jj.gif"><p>家居计算</p></a></li>
+    
+        
+        
+        
+        
+        
+</div></ul>
+        </div>
+        <script>ddSliderPlayers('contain','zstab',0,'on');</script>
+      </div>
+      </div>
+</div>
+<div class="fr hotlist">
+<div class="view-hover" invokename="焦点新闻@test" altname="焦点新闻@test" channelid="test"><ul><li class="ad"><a href="" target="_blank"><img src="images/nopic.gif" title="" /></a></li></ul>
+        
+        
+        
+        
+        
+</div>
+</div>
+</div>
+<div class="box1right fr">
+<div id="notice">
+      <div class="view-hover" invokename="合作电话@test" altname="合作电话@test" channelid="test"><p>什么网合作电话：010-88888888</p>
+
+
+</div>
+      <div id="ScrollMe">
+	  <div class="view-hover" invokename="滚动公告@test" altname="滚动公告@test" channelid="test"><ul class="rolls"></ul>
+
+</div>
+	  </div>
+<script type="text/javascript">
+new Marquee(["ScrollMe","rolls"],0,1,245,18,20,4000,3000,18)
+</script>
+<div id="weibo"><div class="view-hover" invokename="微博@test" altname="微博@test" channelid="test"><a href="#" target="_blank" title="收听新浪微博" rel="nofollow"><img src="html/channel/test/images/tt_sina.png" alt="新浪微博" rel="nofollow" /></a><a href="#" target="_blank" title="收听腾讯微博" rel="nofollow" ><img src="html/channel/test/images/tt_qq.png" alt="腾讯微博" rel="nofollow" /></a>
+
+
+</div></div>
+</div>
+
+
+<!--登录前-->
+<div class="login-box" id="currentLoginUserInfo"><div class="logins" style="padding-left:10px">
+                <form action="login.php" name="login_FORM" method="post">
+<input type="hidden" name="jumpurl" value="http://taoxiangren.com/mode.php?m=area&q=static&type=autostatic&alias=test" />
+<input type="hidden" name="step" value="2" />
+<ul>
+<li class="login-txt"><input class="txt txt-large" name="pwuser" id="nav_pwuser" placeholder="帐号"  maxlength="20" /></li>	
+<li class="login-txt"><input class="txt txt-large focus" type="password" name="pwpwd" 
+ onfocus="if(IsElement('nav_logintab')) getObj('nav_logintab').style.display='';this.value='';var o_nav_logintab = IsElement('nav_logintab') ? getObj('nav_logintab') : ''; PW_popEvent(o_nav_logintab);" placeholder="密码"/></li>
+ 	
+<li class="login-keep" style="width:230px"><a href="sendpwd.php" style="color:#999">忘记密码</a><label><input type="checkbox" value="315360000" name="cookietime">下次自动登录</label></li>	
+
+<li class="login-btn" style=" height:29px; width:230px;"> 
+<input type="submit" class="register-btn btn" style="border:0;float:left;cursor: pointer; width:90px; height:29px;" value="登录">
+
+<a id="regist" class="register-btn btn1 btn" name="register-btn" href="register.php#breadCrumb" style="color:#FFF">立即注册</a>
+</li><li class="login-others cc">或者<a class="qq" href="javascript:;" onclick="OutSiteLogin.showQQLogin('OWS_QQ_entry_homepage','hangzhou');">QQ登录</a><a class="wb" href="javascript:;" onclick="OutSiteLogin.showSinaLogin('OWS_Sina_entry_homepage','hangzhou');">微博登录</a></li>
+</ul>
+</form>
+                </div></div>
+	
+
+<div class="hdkt">
+<div class="h_tit" style="margin-bottom:0"><div class="view-hover" invokename="活动看台title@test" altname="活动看台title@test" channelid="test"><h2><a href="#" target="_blank">活动看台</a></h2><span class="fr"><a href="#" target="_blank" title="更多">更多>></a></span>
+
+</div></div>
+<ul>
+<div class="view-hover" invokename="活动看台list@test" altname="活动看台list@test" channelid="test"><li><a href=""><img src="images/nopic.gif" title="" /></a><h2><a href=""></a></h2><p>活动时间：<a href="" target="_blank" title="我要参加">我要参加</a></p></li></div>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告1@test" altname="通栏广告1@test" channelid="test"><a href=""><img src="images/nopic.gif" title="" /></a></div></div>
+
+<div id="box2">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="精彩图片title@test" altname="精彩图片title@test" channelid="test"><h2><a href="#" target="_blank">精彩图片</a></h2><span class="fr"><a href="#" target="_blank" title="城市热点">城市热点</a>|<a href="#" target="_blank" title="24小时热点">24小时热点</a>|<a href="#" target="_blank" title="拍客制造">拍客制造</a>|<a href="#" target="_blank" title="拍客征集令">拍客征集令</a>|<a href="#" target="_blank" title="热门播客">热门播客</a></span>
+
+</div></div>
+
+<ul class="colorful cc">
+<div class="view-hover" invokename="精彩图片@test" altname="精彩图片@test" channelid="test"><li class="photo-big"><a title="" href="" target="_blank"><img alt="" src="images/nopic.gif"><span></span><em></em></a></li><li><a title="" href="" target="_blank"><img alt="" src="images/nopic.gif"><span></span><em></em></a></li></div>
+</ul>
+
+</div>
+
+<div class="ads"><div class="view-hover" invokename="通栏广告2@test" altname="通栏广告2@test" channelid="test"><a href=""><img src="images/nopic.gif" title="" /></a></div></div>
+
+<div id="box3">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="时尚生活title@test" altname="时尚生活title@test" channelid="test"><h2><a href="#" target="_blank">时尚生活</a></h2><span class="fr"><a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a></span>
+
+
+</div></div>
+
+<div class="box3info">
+    <div class="infoImg">
+<div class="view-hover" invokename="精彩图文@test" altname="精彩图文@test" channelid="test">      <h2>精彩图文</h2><a href="" class="pr10">
+        <img src="images/nopic.gif" width="256" height="127" alt="">
+      </a>
+      <a href="" class="ceb6100"></a> 
+      <span class="c959595">...</span><div class="box3msg"></div>
+
+
+
+
+</div>
+    </div>
+    <div class="favoriteSelect">
+<div class="view-hover" invokename="贴贴精选上@test" altname="贴贴精选上@test" channelid="test">      <h2 class="sosobg">贴贴精选</h2><div class="tac"></div></div>
+<div class="view-hover" invokename="贴贴精选下@test" altname="贴贴精选下@test" channelid="test"><div class="tac"></div></div>
+    </div>
+
+    <div class="hotSort">
+      <h2><div class="view-hover" invokename="热帖排行title@test" altname="热帖排行title@test" channelid="test"><a href="#" class="fr f12" style="font-weight:100">查看更多</a>热帖排行
+
+
+</div></h2>
+      <div class="sort">
+        <ul>
+<div class="view-hover" invokename="热帖排行list@test" altname="热帖排行list@test" channelid="test"><li class="pl0">
+            <b>
+              <a href="" class="ceb6100"></a>
+            </b>
+            <a href="" class="fl pr10">
+              <img src="images/nopic.gif" width="100" height="80" alt="">
+            </a>
+            <span class="c959595">...</span>
+          </li></div>
+
+
+        </ul>
+        <div class="c"></div>
+        <div class="view-hover" invokename="热帖排行ad@test" altname="热帖排行ad@test" channelid="test"><a href="" target="_blank"><img src="images/nopic.gif" width="255" height="70" alt="" title=""></a></div>
+      </div>
+    </div>
+      <div class="c"></div>
+      <div class="MemberShow">
+        <b class="rc-lt"></b>
+        <b class="rc-rt"></b>
+        <a class="rc-nl rr" id="go_left"></a>
+        <a class="rc-nr rr" id="go_right"></a>
+        <div id="scroll" class="scroll">
+	        <ul id="scrollul">
+<div class="view-hover" invokename="会员风采@test" altname="会员风采@test" channelid="test"><li>
+<a href="" class="fl pr10">
+	                <img src="images/nopic.gif" alt="">
+	              </a>
+	              <span>
+	                <a href="" class="ceb6100"></a>
+	                <em class="c959595"></em>
+	              </span>
+	            </li></div>
+	          	        </ul>
+        </div>
+<script type="text/javascript">
+new Marquee(
+{
+	MSClass	  : ["scroll","scrollul"],
+	Direction : 2,
+	PrevBtnID : "go_left",
+	NextBtnID : "go_right",
+	Step	  : 0.3,
+	Width	  : 828,
+	Height	  : 60,
+	Timer	  : 20,
+	DelayTime : 3000,
+	WaitTime  : 5000,
+	ScrollStep: 275,
+	SwitchType: 0,
+	AutoStart : true
+});
+</script>
+     </div>
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告3@test" altname="通栏广告3@test" channelid="test"><a href=""><img src="images/nopic.gif" title="" /></a></div></div>
+
+<div id="box4">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="论坛版块title@test" altname="论坛版块title@test" channelid="test"><h2><a href="#" target="_blank">论坛版块</a></h2><span class="fr"><a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a>|<a href="#" target="_blank" title="版块链接">版块链接</a></span>
+
+
+</div></div>
+
+<div class="box4info cc">
+<div class="fl forumlist">
+<ul class="club-list">
+
+<li class="club3 club">
+<div class="board">
+<h2><a href="thread.php?fid=3" target="_blank" title="">相聚深州</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=3" target="_blank"><img src="html/channel/test/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p></p>
+</div>
+</div>
+</li>
+
+<li class="club4 club">
+<div class="board">
+<h2><a href="thread.php?fid=4" target="_blank" title="">都市生活</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=4" target="_blank"><img src="html/channel/test/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p></p>
+</div>
+</div>
+</li>
+
+<li class="club5 club">
+<div class="board">
+<h2><a href="thread.php?fid=5" target="_blank" title="">信息发布</a><span class="todayPost">(24时新贴：0)</span></h2>
+<div class="board-logo">
+          <a href="thread.php?fid=5" target="_blank"><img src="html/channel/test/images/nologo.jpg" /></a>
+</div>
+<div class="link6">
+<!--h3><a target="_blank" href="#">1F:美食俱乐部</a></h3-->
+<p></p>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+
+<div class="fr" style="padding-top:5px">
+
+<div class="hotSort">
+    
+    
+      <h2 id="sort_tab"><span class="switchNavItem">今日</span><span class="switchNavItem">本周</span><span class="switchNavItem">本月</span></h2>
+      <div class="sort" id="sort_list">
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="今日帖子排行@test" altname="今日帖子排行@test" channelid="test"></div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本周帖子排行@test" altname="本周帖子排行@test" channelid="test"></div></ol>
+        <ol class="switchItem" style="display:none"><div class="view-hover" invokename="本月帖子排行@test" altname="本月帖子排行@test" channelid="test"></div></ol>
+        </div>
+        <script>ddSliderPlayers('sort_list','sort_tab',0,'on');</script>
+              <h2 style="margin-top:10px"><div class="view-hover" invokename="会员排行title@test" altname="会员排行title@test" channelid="test">会员排行
+</div></h2>
+      <div class="sort">
+		<dl>
+<div class="view-hover" invokename="会员排行@test" altname="会员排行@test" channelid="test"></div>
+        </dl>
+      </div>
+<div class="ad2" style="padding-top:12px"><div class="view-hover" invokename="论坛版块ad@test" altname="论坛版块ad@test" channelid="test"><a target="_blank" href=""><img src="images/nopic.gif" width="260" height="90" title="" /></a></div></div>
+</div>
+</div>
+
+</div>
+</div>
+
+
+<div class="ads"><div class="view-hover" invokename="通栏广告4@test" altname="通栏广告4@test" channelid="test"><a href=""><img src="images/nopic.gif" title="" /></a></div></div>
+
+<div id="box5">
+<div class="h_tit" style="margin:13px 18px 0"><div class="view-hover" invokename="友情链接title@test" altname="友情链接title@test" channelid="test"><h2>友情链接</h2><span class="fr"><a href="#" target="_blank" title="申请友情链接">+ 申请友情链接 +</a></span>
+
+</div></div>
+<div class="box5info"><div class="view-hover" invokename="友情链接list@test" altname="友情链接list@test" channelid="test"><ul class="cc"><li><a href="" target="_blank"><img alt="" src="images/nopic.gif"></a></li></ul><ul class="cc"><li><a href="" target="_blank"></a></li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div></div>
+</div>
+
+<div class="c"></div>
+</div>
+<div class="footer-wrap">
+<div class="c"></div>
+<div id="bottom"></div>
+
+<div id="footer">
+	<div class="mb5">
+	<div class="bottom tac">
+
+<span class="mr10"><a id="nav_key_up_12" href="sendemail.php" title="" >联系我们</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_13" href="simple/" title="" >无图版</a></span><span class="gray mr10">|</span><span class="mr10"><a id="nav_key_up_14" href="m/introduce.php" title="" >手机浏览</a></span><span class="gray mr10">|</span><a href="job.php?action=erasecookie&verify=a3ef94dc">清除Cookies</a>
+
+	</div>
+	</div>
+	<div class="s6 tac">
+		<p class="mb5" id="footInfo">Powered by <a href="http://www.phpwind.net/" target="_blank" class="s4">phpwind v8.7</a>&nbsp;<a href="http://www.phpwind.com/certificate.php?host=taoxiangren.com" target="_blank">Certificate</a> Copyright<br /> &copy;2003-2011 <a href="http://taoxiangren.com/" target="_blank">桃乡人网</a> 版权所有 <a href="http://www.miibeian.gov.cn" target="_blank">沪ICP备11048881号-4</a> <script src="http://s15.cnzz.com/stat.php?id=4649710&web_id=4649710&show=pic" language="JavaScript"></script>
+ <span id="stats"></span>
+
+		</p>
+<script type="text/javascript" src="js/global.js"></script>
+
+
+<img height="0" width="0" src="mode.php?m=area&q=static&type=autostatic&alias=test" />
+
+	</div>
+</div></div>
+</body></html>
+<script>
+var openmenu = {'td_userinfomore' : 'menu_userinfomore','td_u' : 'menu_u','td_home' : 'menu_home','td_profile' : 'menu_profile','td_message' : 'menu_message','td_sort' : 'menu_sort'};
+window.onReady(function(){
+	read.InitMenu();
+	//消息提示
+	new messageTip(90).init();
+});
+</script>
+
+
